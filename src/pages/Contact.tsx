@@ -145,9 +145,9 @@ export const Contact: React.FC = () => {
               <strong>Impara Creative Labs</strong> is the public-facing technology education platform. <strong>TechKnots</strong> is its R&D and engineering partner, providing practical project architectures and technical standards.
             </p>
             <div className="pt-4 flex flex-wrap items-center justify-center gap-6">
-              <ImparaLogo className="scale-90" />
+              <ImparaLogo className="h-10" />
               <div className="h-8 w-px bg-gray-200 hidden sm:block"></div>
-              <TechKnotsLogo className="scale-90" />
+              <TechKnotsLogo className="h-9" />
             </div>
           </div>
         </div>

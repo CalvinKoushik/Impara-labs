@@ -40,7 +40,7 @@ export const TechKnotsPartner: React.FC = () => {
             <div className="lg:col-span-7 space-y-6">
               <div className="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-xs font-bold uppercase tracking-wider text-blue-200">
                 <span>Knowledge Partner:</span>
-                <TechKnotsLogo inverted={true} className="scale-90" />
+                <TechKnotsLogo inverted={true} className="h-6" />
               </div>
 
               <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-white leading-tight">

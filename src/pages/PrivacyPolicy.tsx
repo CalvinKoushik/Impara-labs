@@ -62,7 +62,7 @@ export const PrivacyPolicy: React.FC = () => {
           <section className="space-y-3">
             <h2 className="text-lg font-bold text-brand-navy">3. Third-Party Sharing & Hosting</h2>
             <p>
-              We do not sell, rent, or trade your personal information to third-party marketing companies. Form submissions are processed securely through our hosting and serverless form infrastructure (such as Netlify Forms) using encrypted HTTPS connections.
+              We do not sell, rent, or trade your personal information to third-party marketing companies. Form submissions are processed securely through our serverless infrastructure and encrypted cloud endpoints using secure HTTPS connections.
             </p>
           </section>
 

@@ -62,10 +62,10 @@ export const Header: React.FC = () => {
         <div className="flex items-center justify-between h-20">
           {/* Brand Logo */}
           <div className="flex items-center gap-4">
-            <ImparaLogo />
-            <div className="hidden lg:block h-6 w-px bg-gray-200"></div>
-            <div className="hidden lg:flex items-center text-xs text-gray-500">
-              <TechKnotsLogo className="scale-90" />
+            <ImparaLogo className="h-9 sm:h-11" />
+            <div className="hidden lg:block h-7 w-px bg-gray-200"></div>
+            <div className="hidden lg:flex items-center">
+              <TechKnotsLogo className="h-7" />
             </div>
           </div>
 
@@ -165,8 +165,8 @@ export const Header: React.FC = () => {
 
           <div className="pt-3 border-t border-gray-100 flex items-center justify-between text-xs text-brand-body">
             <div>
-              <span className="block text-[11px] text-gray-500">Knowledge Partner:</span>
-              <TechKnotsLogo className="scale-75 origin-left" />
+              <span className="block text-[11px] text-gray-500 mb-1">Knowledge Partner:</span>
+              <TechKnotsLogo className="h-6" />
             </div>
             <a
               href="tel:+919176747268"

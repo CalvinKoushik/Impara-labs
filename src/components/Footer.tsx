@@ -14,8 +14,8 @@ export const Footer: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 pb-12 border-b border-blue-900/60">
           {/* Brand & Partner Column (5 cols) */}
           <div className="lg:col-span-5 space-y-6">
-            <div className="bg-white/95 rounded-2xl p-4 inline-block shadow-md">
-              <ImparaLogo showTagline={false} />
+            <div className="bg-white rounded-2xl p-3 sm:p-3.5 inline-block shadow-md">
+              <ImparaLogo className="h-10" />
             </div>
 
             <p className="text-blue-100 text-sm max-w-sm leading-relaxed">
@@ -25,11 +25,11 @@ export const Footer: React.FC = () => {
             </p>
 
             {/* Knowledge Partner Badge */}
-            <div className="p-4 rounded-xl bg-white/5 border border-white/10 backdrop-blur-sm max-w-sm space-y-2">
+            <div className="p-4 rounded-xl bg-white/5 border border-white/10 backdrop-blur-sm max-w-sm space-y-3">
               <div className="text-[11px] font-semibold tracking-wider uppercase text-blue-300">
                 Knowledge & R&D Partner
               </div>
-              <TechKnotsLogo inverted={true} />
+              <TechKnotsLogo inverted={true} className="h-8" />
               <p className="text-xs text-blue-200/80 leading-normal">
                 Supported by the industry and research capabilities of TechKnots across IoT, embedded engineering, automation, and AI.
               </p>
@@ -123,6 +123,8 @@ export const Footer: React.FC = () => {
 
               <a
                 href={siteConfig.contact.websiteUrl}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="flex items-start gap-2.5 hover:text-white transition-colors"
               >
                 <Globe className="w-4 h-4 text-brand-accent flex-shrink-0 mt-0.5" />

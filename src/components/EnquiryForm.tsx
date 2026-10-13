@@ -170,9 +170,7 @@ export const EnquiryForm: React.FC = () => {
     setIsSubmitting(true);
 
     try {
-      // Encode for Netlify Forms
-      const payload: Record<string, string> = {
-        'form-name': 'enrolment-enquiry',
+      const payload = {
         fullName: formData.fullName.trim(),
         mobileNumber: formData.mobileNumber.trim(),
         email: formData.email.trim(),
@@ -184,34 +182,40 @@ export const EnquiryForm: React.FC = () => {
         degree: formData.degree.trim(),
         graduationYear: formData.graduationYear.trim(),
         learningGoals: formData.learningGoals.trim(),
-        contactConsent: formData.contactConsent ? 'yes' : 'no',
-        privacyConsent: formData.privacyConsent ? 'yes' : 'no',
+        contactConsent: formData.contactConsent,
+        privacyConsent: formData.privacyConsent,
+        botField: formData.botField,
       };
 
-      const urlEncodedBody = Object.keys(payload)
-        .map((key) => encodeURIComponent(key) + '=' + encodeURIComponent(payload[key]))
-        .join('&');
+      const endpoint = import.meta.env.VITE_SUBMIT_API_URL || '/api/submit-enquiry';
 
-      const response = await fetch('/', {
+      const response = await fetch(endpoint, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: urlEncodedBody,
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json',
+        },
+        body: JSON.stringify(payload),
       });
 
-      if (response.ok || response.status === 404 || response.status === 405) {
+      const responseData = await response.json().catch(() => null);
+
+      if (response.ok && (!responseData || responseData.success !== false)) {
         setIsSuccess(true);
       } else {
-        throw new Error(`Submission failed with status: ${response.status}`);
+        const errorMsg =
+          responseData?.error ||
+          responseData?.message ||
+          `Submission failed with status: ${response.status}`;
+        throw new Error(errorMsg);
       }
     } catch (err: unknown) {
-      console.warn('Form submission notice:', err);
-      if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
-        setIsSuccess(true);
-      } else {
-        setSubmitError(
-          'We encountered an issue submitting your enquiry. Please verify your internet connection or reach out directly on WhatsApp.'
-        );
-      }
+      console.error('Enquiry submission error:', err);
+      const message =
+        err instanceof Error
+          ? err.message
+          : 'We encountered an issue submitting your enquiry. Please verify your internet connection or reach out directly on WhatsApp.';
+      setSubmitError(message);
     } finally {
       setIsSubmitting(false);
     }
@@ -290,21 +294,19 @@ export const EnquiryForm: React.FC = () => {
       )}
 
       <form
-        name="enrolment-enquiry"
-        method="POST"
-        data-netlify="true"
-        netlify-honeypot="bot-field"
         onSubmit={handleSubmit}
         className="space-y-6"
         noValidate
       >
-        {/* Hidden inputs for Netlify form processing */}
-        <input type="hidden" name="form-name" value="enrolment-enquiry" />
-        <p className="hidden">
+        {/* Anti-spam honeypot */}
+        <p className="hidden" aria-hidden="true">
           <label>
-            Don’t fill this out if you're human:{' '}
+            Leave this empty:{' '}
             <input
-              name="bot-field"
+              type="text"
+              name="botField"
+              tabIndex={-1}
+              autoComplete="off"
               value={formData.botField}
               onChange={(e) => setFormData({ ...formData, botField: e.target.value })}
             />

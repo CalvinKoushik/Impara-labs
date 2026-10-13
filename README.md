@@ -132,42 +132,58 @@ Runs a local web server serving `dist/` at `http://localhost:4173`.
 
 ---
 
-## ☁️ Netlify Deployment Guide
+---
 
-### Option A: Deploy via Netlify Dashboard (Recommended)
-1. Push this repository to GitHub, GitLab, or Bitbucket.
-2. Log in to [Netlify](https://app.netlify.com).
-3. Click **Add new site** → **Import an existing project**.
-4. Select your repository.
-5. Netlify will auto-detect settings from `netlify.toml`:
-   - **Build command:** `npm run build`
-   - **Publish directory:** `dist`
-6. Click **Deploy site**.
+## ☁️ Vercel Deployment Guide
 
-### Option B: Deploy via Netlify CLI
-```bash
-# Install Netlify CLI globally
-npm install -g netlify-cli
-
-# Login to Netlify
-netlify login
-
-# Deploy directly from build folder
-netlify deploy --prod --dir=dist
-```
+### Step 1: Deploy to Vercel
+1. Push your repository to GitHub, GitLab, or Bitbucket:
+   ```bash
+   git add .
+   git commit -m "Configure Vercel deployment with Google Sheets and Email backend"
+   git push origin main
+   ```
+2. Go to [Vercel](https://vercel.com) and click **"Add New"** → **"Project"**.
+3. Import your repository (`impara-creative-labs`).
+4. Framework Preset: **Vite** (auto-detected).
+5. Build Command: `npm run build`
+6. Output Directory: `dist`
+7. Add Environment Variable:
+   - **Name:** `GOOGLE_SHEET_WEBHOOK_URL`
+   - **Value:** `https://script.google.com/macros/s/YOUR_DEPLOYED_SCRIPT_ID/exec` *(see instructions below)*
+8. Click **Deploy**.
 
 ---
 
-## 📋 Netlify Forms Verification
+## 📊 Google Sheets Storage & Direct Email Notification Setup
 
-1. When Netlify runs `npm run build`, its static analysis bot reads `dist/index.html` and detects the pre-rendered form:
-   ```html
-   <form name="enrolment-enquiry" data-netlify="true" netlify-honeypot="bot-field" hidden>
-     ...
-   </form>
-   ```
-2. In the Netlify admin dashboard, navigate to **Forms** → **enrolment-enquiry**.
-3. You can set up instant email or Slack alerts under **Site configuration** → **Forms** → **Form notifications** to receive an alert every time a student registers interest.
+All enquiries are stored in a real Google Sheet and simultaneously emailed to `imparacreativelabs@gmail.com` without any third-party subscription costs.
+
+### 5-Minute Setup:
+1. **Create a Google Sheet:**
+   - Go to [Google Sheets](https://sheets.new) and create a new sheet (e.g. name it *"Impara Creative Labs Enquiries"*).
+2. **Open Apps Script:**
+   - In the top menu, click **Extensions** → **Apps Script**.
+3. **Paste Script:**
+   - Delete any default code in `Code.gs`.
+   - Copy and paste the entire script from [`google-apps-script/Code.gs`](./google-apps-script/Code.gs) into the editor.
+   - Verify `NOTIFICATION_EMAIL: "imparacreativelabs@gmail.com"` (or customize as desired).
+4. **Deploy as Web App:**
+   - Click the blue **Deploy** button (top right) → **New deployment**.
+   - Click the gear icon beside "Select type" and choose **Web app**.
+   - Fill in:
+     - **Description:** `Impara Enquiry Webhook`
+     - **Execute as:** `Me` (your Google Account)
+     - **Who has access:** `Anyone` *(crucial so Vercel can post submissions)*
+   - Click **Deploy**.
+   - Grant permissions when prompted.
+5. **Copy Web App URL:**
+   - Copy the Web App URL (format: `https://script.google.com/macros/s/.../exec`).
+6. **Set Environment Variable in Vercel:**
+   - In your Vercel Project Dashboard → **Settings** → **Environment Variables**:
+     - Key: `GOOGLE_SHEET_WEBHOOK_URL`
+     - Value: `https://script.google.com/macros/s/.../exec`
+   - (For local testing, also paste it into `.env`).
 
 ---
 

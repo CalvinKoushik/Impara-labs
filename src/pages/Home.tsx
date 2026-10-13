@@ -112,7 +112,7 @@ export const Home: React.FC = () => {
               {/* Knowledge Partner Pill */}
               <div className="pt-2 flex items-center gap-3 text-xs text-gray-500">
                 <span>Knowledge & R&D Partner:</span>
-                <TechKnotsLogo className="scale-85 origin-left" />
+                <TechKnotsLogo className="h-7" />
               </div>
             </div>
 
