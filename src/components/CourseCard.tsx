@@ -12,6 +12,7 @@ interface CourseCardProps {
 export const CourseCard: React.FC<CourseCardProps> = ({ course, featured = false }) => {
   const getCourseIcon = (id: string) => {
     switch (id) {
+      case 'iot-smart-automation':
       case 'iot-embedded-systems':
         return <Cpu className="w-6 h-6 text-brand-primary" />;
       case 'full-stack-ai':

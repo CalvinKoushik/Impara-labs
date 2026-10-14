@@ -2,6 +2,7 @@ import React from 'react';
 import { EnquiryForm } from '../components/EnquiryForm';
 import { Phone } from 'lucide-react';
 import { WhatsAppButton } from '../components/WhatsAppButton';
+import { siteConfig } from '../config/site';
 
 export const Enroll: React.FC = () => {
   return (
@@ -55,11 +56,11 @@ export const Enroll: React.FC = () => {
           </div>
           <div className="flex flex-wrap items-center gap-3">
             <a
-              href="tel:+919176747268"
+              href={`tel:${siteConfig.contact.phone}`}
               className="px-4 py-2.5 rounded-xl border border-brand-border text-xs font-bold text-brand-navy hover:bg-gray-50 transition-colors flex items-center gap-1.5"
             >
               <Phone className="w-3.5 h-3.5 text-brand-primary" />
-              <span>Call Us</span>
+              <span>Call Us ({siteConfig.contact.phoneFormatted})</span>
             </a>
             <WhatsAppButton size="sm" label="Chat on WhatsApp" />
           </div>

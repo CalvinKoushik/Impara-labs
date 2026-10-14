@@ -13,6 +13,7 @@ export interface SiteConfig {
     whatsappDefaultText: string;
     location: string;
   };
+  focusAreas: string[];
   stats: {
     label: string;
     value: string;
@@ -44,21 +45,27 @@ export const siteConfig: SiteConfig = {
   partnerName: "TechKnots",
   partnerTagline: "One knot at a time",
   tagline: "Learn. Create. Build. Beyond.",
-  coreDifferentiator: "Learn technology. Build real projects. Create beyond boundaries.",
+  coreDifferentiator: "Impara helps students build real-world skills, not just learn theory.",
   contact: {
-    phone: "+919176747268",
-    phoneFormatted: "+91 91767 47268",
+    phone: "+919843286522",
+    phoneFormatted: "+91 98432 86522",
     email: "imparacreativelabs@gmail.com",
     websiteUrl: "https://www.imparacreativelabs.com",
-    whatsappUrl: "https://wa.me/919176747268?text=share%20me%20more%20details%20to%20enroll",
+    whatsappUrl: "https://wa.me/919843286522?text=share%20me%20more%20details%20to%20enroll",
     whatsappDefaultText: "share me more details to enroll",
     location: "Chennai, Tamil Nadu, India",
   },
+  focusAreas: [
+    "IoT & Smart Automation",
+    "Full Stack Development",
+    "AI & Generative AI",
+    "Data & Emerging Technologies",
+  ],
   stats: [
     {
       value: "50+",
       label: "Academic Collaborations",
-      sublabel: "Working with colleges and engineering institutions across India",
+      sublabel: "Working with students and institutions across India",
     },
     {
       value: "100+",
@@ -66,14 +73,14 @@ export const siteConfig: SiteConfig = {
       sublabel: "Real-world hardware, IoT, and software implementations",
     },
     {
-      value: "10,000+",
-      label: "Students Trained",
-      sublabel: "Empowering engineering students through hands-on learning",
+      value: "AICTE / NIRF",
+      label: "Approved Internships",
+      sublabel: "Through TechKnots organizational internship programs",
     },
     {
-      value: "AICTE-Approved",
-      label: "Internships",
-      sublabel: "Through TechKnots organizational internship programs",
+      value: "10,000+",
+      label: "Students Mentored",
+      sublabel: "Empowering engineering students through hands-on project building",
     },
   ],
   navLinks: [
@@ -84,9 +91,9 @@ export const siteConfig: SiteConfig = {
   ],
   footerLinks: {
     programs: [
-      { label: "IoT & Embedded Systems", href: "/courses/iot-embedded-systems" },
+      { label: "IoT & Smart Automation", href: "/courses/iot-smart-automation" },
       { label: "Full Stack Development with AI", href: "/courses/full-stack-ai" },
-      { label: "Mastering Generative AI", href: "/courses/generative-ai" },
+      { label: "Generative AI", href: "/courses/generative-ai" },
     ],
     quickLinks: [
       { label: "About Impara", href: "/about" },
@@ -114,13 +121,12 @@ export const siteConfig: SiteConfig = {
     mentorship: "10,000+ Engineering Students Mentored through technology projects and innovation initiatives",
     ieeeAffiliation: "IEEE Member (Madras Section) with 5+ years of active professional participation",
     focusAreas: [
-      "Artificial Intelligence",
-      "IoT & Embedded Systems",
-      "Smart Agriculture",
-      "Biomedical Technology",
+      "IoT & Smart Automation",
+      "Full Stack Development",
+      "Artificial Intelligence & Generative AI",
       "Robotics & Autonomous Systems",
       "Industrial IoT & Digital Twin",
-      "Smart Infrastructure & Safety",
+      "Smart Infrastructure & Agriculture",
     ],
   },
 };

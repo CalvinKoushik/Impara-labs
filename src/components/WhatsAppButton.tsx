@@ -24,8 +24,9 @@ export const WhatsAppButton: React.FC<WhatsAppButtonProps> = ({
     finalMessage = `Hi, I want more details about the ${courseTitle} programme at Impara Creative Labs.`;
   }
 
+  const cleanPhone = siteConfig.contact.phone.replace('+', '');
   const encodedMessage = encodeURIComponent(finalMessage);
-  const waUrl = `https://wa.me/919176747268?text=${encodedMessage}`;
+  const waUrl = `https://wa.me/${cleanPhone}?text=${encodedMessage}`;
 
   const sizeClasses = {
     sm: 'px-3 py-1.5 text-xs gap-1.5 font-medium',
@@ -51,7 +52,7 @@ export const WhatsAppButton: React.FC<WhatsAppButtonProps> = ({
       href={waUrl}
       target="_blank"
       rel="noopener noreferrer"
-      aria-label={`${label} (+91 91767 47268)`}
+      aria-label={`${label} (${siteConfig.contact.phoneFormatted})`}
       className={`inline-flex items-center justify-center rounded-xl cursor-pointer select-none ${sizeClasses[size]} ${variantClasses[variant]} ${className}`}
     >
       <MessageCircle className={`${size === 'sm' ? 'w-4 h-4' : size === 'lg' ? 'w-5 h-5' : 'w-4.5 h-4.5'} fill-current`} />

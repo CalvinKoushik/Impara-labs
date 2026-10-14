@@ -4,9 +4,10 @@ import { useLocation } from 'react-router-dom';
 const pageTitles: Record<string, string> = {
   '/': 'Impara Creative Labs | Learn. Create. Build. Beyond. Powered by TechKnots',
   '/courses': 'All Programmes | Impara Creative Labs',
-  '/courses/iot-embedded-systems': 'IoT & Embedded Systems (3-Month Programme) | Impara Creative Labs',
+  '/courses/iot-smart-automation': 'IoT & Smart Automation (3-Month Programme) | Impara Creative Labs',
+  '/courses/iot-embedded-systems': 'IoT & Smart Automation (3-Month Programme) | Impara Creative Labs',
   '/courses/full-stack-ai': 'Full Stack Development with AI (3-Month Programme) | Impara Creative Labs',
-  '/courses/generative-ai': 'Mastering Generative AI (3-Month Programme) | Impara Creative Labs',
+  '/courses/generative-ai': 'Generative AI (3-Month Programme) | Impara Creative Labs',
   '/about': 'About Us | Impara Creative Labs — Powered by TechKnots',
   '/enroll': 'Programme Enquiry & Interest Registration | Impara Creative Labs',
   '/contact': 'Contact Us | Impara Creative Labs',

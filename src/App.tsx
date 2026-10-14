@@ -29,10 +29,14 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/courses" element={<Courses />} />
             
-            {/* Direct course routes as required by Phase 3 */}
+            {/* Direct course routes as required */}
+            <Route
+              path="/courses/iot-smart-automation"
+              element={<CourseDetail customSlug="iot-smart-automation" />}
+            />
             <Route
               path="/courses/iot-embedded-systems"
-              element={<CourseDetail customSlug="iot-embedded-systems" />}
+              element={<CourseDetail customSlug="iot-smart-automation" />}
             />
             <Route
               path="/courses/full-stack-ai"

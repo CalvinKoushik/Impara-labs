@@ -1,41 +1,43 @@
 import React from 'react';
-import { Target, Users, HelpCircle, FileText, FolderGit2 } from 'lucide-react';
+import { FolderGit2, Code2, Users, Award, FileCheck2, HelpCircle } from 'lucide-react';
 
 export const CareerSupportSection: React.FC = () => {
   const supports = [
     {
-      title: "Capstone Project Guidance",
-      desc: "End-to-end milestone reviews to ensure your final project is technically rigorous, fully documented, and ready to impress recruiters.",
-      icon: <Target className="w-5 h-5 text-brand-primary" />,
+      number: "01",
+      title: "Portfolio-Ready Projects",
+      desc: "Complete 3 tangible, production-style projects (2 Mini Projects + 1 Capstone) with clean GitHub repositories, documentation, and live demos.",
+      icon: <FolderGit2 className="w-5 h-5 text-brand-primary" />,
     },
     {
-      title: "Technical Mentoring",
-      desc: "Direct access to practicing engineers and researchers to unblock technical hurdles and refine system design choices.",
+      number: "02",
+      title: "Industry Exposure",
+      desc: "Work on architectures, frameworks, and engineering workflows derived directly from TechKnots applied R&D operations.",
+      icon: <Code2 className="w-5 h-5 text-brand-primary" />,
+    },
+    {
+      number: "03",
+      title: "Expert Mentorship",
+      desc: "Direct access to practicing engineers and domain specialists for milestone reviews, debugging assistance, and code quality audits.",
       icon: <Users className="w-5 h-5 text-brand-primary" />,
     },
     {
-      title: "Mock Interview Sessions",
-      desc: "Simulate technical interviews, hardware viva questions, system design walkthroughs, and problem-solving evaluations.",
+      number: "04",
+      title: "Certification",
+      desc: "Receive an industry-recognized certificate backed by TechKnots upon successful completion and demonstration of your Capstone Project.",
+      icon: <Award className="w-5 h-5 text-brand-primary" />,
+    },
+    {
+      number: "05",
+      title: "LinkedIn Profile Support",
+      desc: "Optimize your professional online footprint with expert guidance on presenting your technical projects, tech stacks, and capstones.",
+      icon: <FileCheck2 className="w-5 h-5 text-brand-primary" />,
+    },
+    {
+      number: "06",
+      title: "Mock Interviews",
+      desc: "Technical screening simulations, system design walkthroughs, viva drills, and Q&A practice to build real interview confidence.",
       icon: <HelpCircle className="w-5 h-5 text-brand-primary" />,
-    },
-    {
-      title: "Résumé Development",
-      desc: "Structure your résumé to highlight project achievements, measurable engineering outcomes, and hands-on skills.",
-      icon: <FileText className="w-5 h-5 text-brand-primary" />,
-    },
-    {
-      title: "LinkedIn Profile Optimization",
-      desc: "Showcase your project videos, GitHub repos, and certification milestones to build professional discoverability.",
-      icon: (
-        <svg className="w-5 h-5 text-brand-primary fill-current" viewBox="0 0 24 24">
-          <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 8.76a1.64 1.64 0 1 0-.02-3.28 1.64 1.64 0 0 0 .02 3.28m1.4 9.74v-8.37H5.06v8.37h2.8Z" />
-        </svg>
-      ),
-    },
-    {
-      title: "Portfolio & GitHub Guidance",
-      desc: "Organize clean codebases, README files, architectural block diagrams, and live demos that stand out during hiring reviews.",
-      icon: <FolderGit2 className="w-5 h-5 text-brand-primary" />,
     },
   ];
 
@@ -47,10 +49,10 @@ export const CareerSupportSection: React.FC = () => {
             Beyond the Classroom
           </span>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-brand-navy mt-2">
-            Project and Career Readiness Support
+            Skills Today. Opportunities Tomorrow.
           </h2>
           <p className="text-sm text-brand-body mt-3">
-            Technical learning is only the first step. We prepare you with the portfolio, presentation skills, and practical experience needed to thrive.
+            Technical learning is only the first step. We prepare you with portfolio proof-of-work, presentation skills, and practical experience needed to thrive.
           </p>
         </div>
 
@@ -58,17 +60,24 @@ export const CareerSupportSection: React.FC = () => {
           {supports.map((item) => (
             <div
               key={item.title}
-              className="bg-white rounded-2xl p-6 border border-brand-border shadow-card hover:shadow-card-hover transition-all duration-200"
+              className="bg-white rounded-2xl p-6 border border-brand-border shadow-card hover:shadow-card-hover transition-all duration-200 flex flex-col justify-between"
             >
-              <div className="w-10 h-10 rounded-xl bg-blue-50 flex items-center justify-center mb-4 border border-brand-border">
-                {item.icon}
+              <div>
+                <div className="flex items-center justify-between mb-4">
+                  <div className="w-10 h-10 rounded-xl bg-blue-50 flex items-center justify-center border border-brand-border">
+                    {item.icon}
+                  </div>
+                  <span className="text-xs font-black text-brand-primary tracking-widest uppercase">
+                    {item.number}
+                  </span>
+                </div>
+                <h3 className="text-base font-extrabold text-brand-navy mb-2">
+                  {item.title}
+                </h3>
+                <p className="text-xs text-brand-body leading-relaxed">
+                  {item.desc}
+                </p>
               </div>
-              <h3 className="text-base font-extrabold text-brand-navy mb-2">
-                {item.title}
-              </h3>
-              <p className="text-xs text-brand-body leading-relaxed">
-                {item.desc}
-              </p>
             </div>
           ))}
         </div>
@@ -76,7 +85,7 @@ export const CareerSupportSection: React.FC = () => {
         {/* Responsible Career Support Notice */}
         <div className="mt-10 max-w-3xl mx-auto p-4 rounded-2xl bg-white border border-brand-border text-center shadow-sm">
           <p className="text-xs text-brand-body leading-relaxed">
-            <strong className="text-brand-navy font-bold">Our Commitment to Honest Education:</strong> Impara Creative Labs empowers students through authentic skill building, mentoring, and tangible portfolio creation. We do not make misleading claims of guaranteed placements, unreal salaries, or passive outcomes. Your career success is powered by your effort and project execution.
+            <strong className="text-brand-navy font-bold">Our Commitment to Honest Education:</strong> Impara Creative Labs empowers students through authentic skill building, mentoring, and tangible portfolio creation. We do not make misleading claims of guaranteed placements or passive outcomes. Your career success is powered by your effort, hands-on execution, and genuine project capability.
           </p>
         </div>
       </div>

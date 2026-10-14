@@ -68,12 +68,12 @@ export const EnquiryForm: React.FC = () => {
   useEffect(() => {
     const courseParam = searchParams.get('course');
     if (courseParam) {
-      if (courseParam === 'iot-embedded-systems') {
-        setFormData((prev) => ({ ...prev, preferredCourse: 'IoT & Embedded Systems' }));
+      if (courseParam === 'iot-embedded-systems' || courseParam === 'iot-smart-automation') {
+        setFormData((prev) => ({ ...prev, preferredCourse: 'IoT & Smart Automation' }));
       } else if (courseParam === 'full-stack-ai') {
         setFormData((prev) => ({ ...prev, preferredCourse: 'Full Stack Development with AI' }));
       } else if (courseParam === 'generative-ai') {
-        setFormData((prev) => ({ ...prev, preferredCourse: 'Mastering Generative AI' }));
+        setFormData((prev) => ({ ...prev, preferredCourse: 'Generative AI' }));
       } else {
         setFormData((prev) => ({ ...prev, preferredCourse: courseParam }));
       }
@@ -413,9 +413,9 @@ export const EnquiryForm: React.FC = () => {
                 }`}
               >
                 <option value="">-- Select a 3-Month Programme --</option>
-                <option value="IoT & Embedded Systems">IoT & Embedded Systems (Hardware, Protocols & Cloud)</option>
-                <option value="Full Stack Development with AI">Full Stack Development with AI (Modern Web & LLMs)</option>
-                <option value="Mastering Generative AI">Mastering Generative AI (LLMs, RAG & Agents)</option>
+                <option value="IoT & Smart Automation">IoT & Smart Automation (Hardware, Protocols & Cloud)</option>
+                <option value="Full Stack Development with AI">Full Stack Development with AI (React, Java Spring Boot & AI)</option>
+                <option value="Generative AI">Generative AI (LLMs, RAG, MCP & Agents)</option>
                 <option value="Not sure yet — need guidance">Not sure yet — need guidance from mentor</option>
               </select>
               {errors.preferredCourse && (

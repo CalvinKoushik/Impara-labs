@@ -18,34 +18,34 @@ import { WhatsAppButton } from '../components/WhatsAppButton';
 export const About: React.FC = () => {
   const domains = [
     {
-      title: "IoT and Embedded Systems",
-      desc: "Microcontroller architecture, firmware development, sensors, actuators, and hardware telemetry.",
+      title: "IoT & Smart Automation",
+      desc: "Microcontroller architecture, firmware development, sensors, actuators, industrial protocols (MQTT, HTTP), and cloud automation.",
       icon: <Cpu className="w-5 h-5 text-brand-primary" />,
     },
     {
-      title: "Robotics and Automation",
-      desc: "Autonomous rovers, motor controllers, sensor fusion, and industrial automation protocols.",
-      icon: <Bot className="w-5 h-5 text-brand-primary" />,
-    },
-    {
       title: "Full Stack Development",
-      desc: "Modern React web applications, robust Node.js backend systems, relational databases, and RESTful APIs.",
+      desc: "Modern React web applications, enterprise Core Java, Spring Boot REST APIs, relational SQL databases, and AI integration.",
       icon: <Code2 className="w-5 h-5 text-brand-primary" />,
     },
     {
-      title: "Generative AI and AI/ML",
-      desc: "Large Language Models, prompt architectures, Retrieval-Augmented Generation (RAG), and agentic tools.",
+      title: "AI & Generative AI",
+      desc: "Large Language Models, Context Engineering, RAG vector pipelines, Model Context Protocol (MCP), and autonomous AI agents.",
       icon: <BrainCircuit className="w-5 h-5 text-brand-primary" />,
     },
     {
-      title: "Smart Systems",
-      desc: "Connected cloud dashboards, energy monitoring, smart city infrastructure, and remote telematics.",
-      icon: <Radio className="w-5 h-5 text-brand-primary" />,
+      title: "Data & Emerging Technologies",
+      desc: "Connected cloud dashboards, telemetry analytics, edge computer vision, ESP32-CAM processing, and smart devices.",
+      icon: <Layers className="w-5 h-5 text-brand-primary" />,
     },
     {
-      title: "Prototyping & Emerging Tech",
-      desc: "Fast hardware and software prototyping, rapid breadboarding, and edge computer vision.",
-      icon: <Layers className="w-5 h-5 text-brand-primary" />,
+      title: "Robotics and Automation",
+      desc: "Microcontrollers, motor control, sensor fusion, and applied hardware automation.",
+      icon: <Bot className="w-5 h-5 text-brand-primary" />,
+    },
+    {
+      title: "Smart Systems",
+      desc: "Real-time telematics, IoT cloud platforms (Blynk, AWS IoT, ThingSpeak), and automated IFTTT event workflows.",
+      icon: <Radio className="w-5 h-5 text-brand-primary" />,
     },
   ];
 

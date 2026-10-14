@@ -47,7 +47,7 @@ const defaultFaqs: FAQItem[] = [
   },
   {
     question: "Can I contact the team before enrolling?",
-    answer: "Yes, we encourage it! You can speak directly with our program advisors via phone at +91 91767 47268, email us at imparacreativelabs@gmail.com, or send a quick WhatsApp message to ask any questions about course fit, batch timing, or technical requirements.",
+    answer: "Yes, we encourage it! You can speak directly with our program advisors via phone at +91 98432 86522, email us at imparacreativelabs@gmail.com, or send a quick WhatsApp message to ask any questions about course fit, batch timing, or technical requirements.",
   },
 ];
 

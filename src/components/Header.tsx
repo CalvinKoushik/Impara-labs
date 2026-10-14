@@ -45,7 +45,7 @@ export const Header: React.FC = () => {
           </div>
           <div className="flex items-center gap-4 text-xs">
             <a
-              href="tel:+919176747268"
+              href={`tel:${siteConfig.contact.phone}`}
               className="text-brand-navy hover:text-brand-primary transition-colors font-medium hidden md:inline"
             >
               📞 {siteConfig.contact.phoneFormatted}
@@ -169,7 +169,7 @@ export const Header: React.FC = () => {
               <TechKnotsLogo className="h-6" />
             </div>
             <a
-              href="tel:+919176747268"
+              href={`tel:${siteConfig.contact.phone}`}
               className="text-xs font-bold text-brand-primary bg-brand-pale px-3 py-1.5 rounded-lg"
             >
               Call: {siteConfig.contact.phoneFormatted}

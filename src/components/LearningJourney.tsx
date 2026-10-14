@@ -1,37 +1,37 @@
 import React from 'react';
-import { Compass, BookOpen, Wrench, Hammer, Award } from 'lucide-react';
+import { BookOpen, Hammer, Award, FileCheck2, Rocket } from 'lucide-react';
 
 export const LearningJourney: React.FC = () => {
   const steps = [
     {
       num: "01",
-      title: "Discover",
-      desc: "Choose a technology pathway tailored to your engineering goals and industry interests.",
-      icon: <Compass className="w-5 h-5 text-brand-primary" />,
-    },
-    {
-      num: "02",
-      title: "Learn",
-      desc: "Understand core foundations through hands-on technical training and curated modules.",
+      title: "LEARN",
+      desc: "Understand core foundations and master modern industry tools through applied technical training.",
       icon: <BookOpen className="w-5 h-5 text-brand-primary" />,
     },
     {
-      num: "03",
-      title: "Experiment",
-      desc: "Practise with industry-standard hardware, development boards, and software tools.",
-      icon: <Wrench className="w-5 h-5 text-brand-primary" />,
-    },
-    {
-      num: "04",
-      title: "Build",
-      desc: "Develop 2 mini projects and an end-to-end, functional Capstone Project under mentor guidance.",
+      num: "02",
+      title: "BUILD",
+      desc: "Develop 2 mini projects and 1 end-to-end, functional Capstone Project solving real scenarios.",
       icon: <Hammer className="w-5 h-5 text-brand-primary" />,
     },
     {
-      num: "05",
-      title: "Showcase",
-      desc: "Document, present, and showcase your live prototype with GitHub code and certification.",
+      num: "03",
+      title: "SHOWCASE",
+      desc: "Publish live deployments, test suites, and clean GitHub repositories for recruiter validation.",
       icon: <Award className="w-5 h-5 text-brand-primary" />,
+    },
+    {
+      num: "04",
+      title: "PREPARE",
+      desc: "Refine technical problem-solving with mock interviews, LinkedIn branding, and resume positioning.",
+      icon: <FileCheck2 className="w-5 h-5 text-brand-primary" />,
+    },
+    {
+      num: "05",
+      title: "GROW",
+      desc: "Gain industry exposure, mentorship, and career opportunities through TechKnots ecosystem support.",
+      icon: <Rocket className="w-5 h-5 text-brand-primary" />,
     },
   ];
 

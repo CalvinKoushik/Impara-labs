@@ -70,9 +70,9 @@ export const Courses: React.FC = () => {
               <thead className="bg-brand-pale text-brand-navy border-b border-brand-border font-bold">
                 <tr>
                   <th className="p-4 sm:p-5">Feature</th>
-                  <th className="p-4 sm:p-5">IoT & Embedded Systems</th>
+                  <th className="p-4 sm:p-5">IoT & Smart Automation</th>
                   <th className="p-4 sm:p-5">Full Stack Development with AI</th>
-                  <th className="p-4 sm:p-5">Mastering Generative AI</th>
+                  <th className="p-4 sm:p-5">Generative AI</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-gray-100 text-brand-body">
@@ -96,26 +96,26 @@ export const Courses: React.FC = () => {
                 </tr>
                 <tr>
                   <td className="p-4 sm:p-5 font-bold text-brand-navy">Core Focus</td>
-                  <td className="p-4 sm:p-5">ESP32, Microcontrollers, MQTT, Cloud Dashboards</td>
-                  <td className="p-4 sm:p-5">React, TypeScript, Node.js, REST APIs, AI SDKs</td>
-                  <td className="p-4 sm:p-5">LLMs, Prompt Engineering, RAG, AI Agents</td>
+                  <td className="p-4 sm:p-5">Arduino, ESP32, MQTT, Blynk, AWS IoT, ESP32-CAM</td>
+                  <td className="p-4 sm:p-5">React, Core Java, Spring Boot, SQL & AI Integration</td>
+                  <td className="p-4 sm:p-5">Python, LLMs, Context Engineering, RAG, MCP, LangGraph, CrewAI</td>
                 </tr>
                 <tr>
                   <td className="p-4 sm:p-5 font-bold text-brand-navy">Knowledge Partner</td>
-                  <td className="p-4 sm:p-5">TechKnots R&D Labs</td>
-                  <td className="p-4 sm:p-5">TechKnots Software Engineering</td>
-                  <td className="p-4 sm:p-5">TechKnots AI Innovation Lab</td>
+                  <td className="p-4 sm:p-5">TechKnots Industry R&D</td>
+                  <td className="p-4 sm:p-5">TechKnots Industry R&D</td>
+                  <td className="p-4 sm:p-5">TechKnots Industry R&D</td>
                 </tr>
                 <tr>
                   <td className="p-4 sm:p-5 font-bold text-brand-navy">Certification</td>
-                  <td className="p-4 sm:p-5">Course Completion Certificate</td>
-                  <td className="p-4 sm:p-5">Course Completion Certificate</td>
-                  <td className="p-4 sm:p-5">Course Completion Certificate</td>
+                  <td className="p-4 sm:p-5">Industry-Recognized Certificate</td>
+                  <td className="p-4 sm:p-5">Industry-Recognized Certificate</td>
+                  <td className="p-4 sm:p-5">Industry-Recognized Certificate</td>
                 </tr>
                 <tr>
                   <td className="p-4 sm:p-5 font-bold text-brand-navy">Action</td>
                   <td className="p-4 sm:p-5">
-                    <Link to="/courses/iot-embedded-systems" className="text-brand-primary font-bold hover:underline">
+                    <Link to="/courses/iot-smart-automation" className="text-brand-primary font-bold hover:underline">
                       View Details →
                     </Link>
                   </td>
