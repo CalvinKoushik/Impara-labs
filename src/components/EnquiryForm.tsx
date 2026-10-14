@@ -64,13 +64,13 @@ export const EnquiryForm: React.FC = () => {
   const [isSuccess, setIsSuccess] = useState(false);
   const [submitError, setSubmitError] = useState<string | null>(null);
 
-  // Handle URL preselection (e.g., ?course=iot-embedded-systems)
+  // Handle URL preselection
   useEffect(() => {
     const courseParam = searchParams.get('course');
     if (courseParam) {
       if (courseParam === 'iot-embedded-systems' || courseParam === 'iot-smart-automation') {
         setFormData((prev) => ({ ...prev, preferredCourse: 'IoT & Smart Automation' }));
-      } else if (courseParam === 'full-stack-ai') {
+      } else if (courseParam === 'full-stack-ai' || courseParam === 'full-stack-development') {
         setFormData((prev) => ({ ...prev, preferredCourse: 'Full Stack Development with AI' }));
       } else if (courseParam === 'generative-ai') {
         setFormData((prev) => ({ ...prev, preferredCourse: 'Generative AI' }));
@@ -90,7 +90,7 @@ export const EnquiryForm: React.FC = () => {
       newErrors.fullName = 'Full name must be at least 2 characters.';
     }
 
-    // Indian mobile number validation (10 digits, optional country code)
+    // Indian mobile number validation
     const cleanPhone = formData.mobileNumber.replace(/[\s\-+]/g, '');
     const indianMobileRegex = /^(?:91)?[6-9]\d{9}$/;
     if (!formData.mobileNumber.trim()) {
@@ -198,24 +198,25 @@ export const EnquiryForm: React.FC = () => {
         body: JSON.stringify(payload),
       });
 
-      const responseData = await response.json().catch(() => null);
-
-      if (response.ok && (!responseData || responseData.success !== false)) {
-        setIsSuccess(true);
-      } else {
-        const errorMsg =
-          responseData?.error ||
-          responseData?.message ||
-          `Submission failed with status: ${response.status}`;
+      if (!response.ok) {
+        let errorMsg = 'Failed to submit enquiry. Please try again.';
+        try {
+          const errData = await response.json();
+          if (errData && errData.message) {
+            errorMsg = errData.message;
+          }
+        } catch (_) {
+          // ignore json parse error
+        }
         throw new Error(errorMsg);
       }
+
+      setIsSuccess(true);
     } catch (err: unknown) {
-      console.error('Enquiry submission error:', err);
-      const message =
-        err instanceof Error
-          ? err.message
-          : 'We encountered an issue submitting your enquiry. Please verify your internet connection or reach out directly on WhatsApp.';
-      setSubmitError(message);
+      const error = err as Error;
+      setSubmitError(
+        error.message || 'There was an issue submitting your form. Please reach out to us directly on WhatsApp or phone.'
+      );
     } finally {
       setIsSubmitting(false);
     }
@@ -223,43 +224,38 @@ export const EnquiryForm: React.FC = () => {
 
   if (isSuccess) {
     return (
-      <div className="bg-white rounded-3xl p-8 sm:p-12 border border-brand-border shadow-card max-w-2xl mx-auto text-center animate-in fade-in zoom-in-95 duration-300">
-        <div className="w-16 h-16 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center mx-auto mb-6">
-          <CheckCircle2 className="w-10 h-10" />
+      <div className="bg-white rounded-xl p-8 sm:p-10 border border-slate-200/90 shadow-sm max-w-2xl mx-auto text-center">
+        <div className="w-12 h-12 rounded-full bg-emerald-50 text-emerald-600 flex items-center justify-center mx-auto mb-4 border border-emerald-100">
+          <CheckCircle2 className="w-6 h-6" />
         </div>
 
-        <h3 className="text-2xl sm:text-3xl font-extrabold text-brand-navy mb-3">
-          Enquiry Received!
-        </h3>
+        <h2 className="text-2xl font-bold text-slate-900 mb-2 tracking-tight">
+          Enquiry Received Successfully!
+        </h2>
 
-        <div className="p-4 rounded-2xl bg-brand-pale border border-brand-border text-brand-body text-sm sm:text-base leading-relaxed mb-6 text-left space-y-2">
-          <p className="font-semibold text-brand-navy">
-            “Thank you for your interest in Impara Creative Labs! Your enquiry has been submitted successfully. Our team will connect with you regarding your selected programme and available batches.”
-          </p>
-          <p className="text-xs text-brand-body/80">
-            Note: This enquiry registers your interest. Batch seat confirmation and syllabus walkthrough will be shared upon direct coordination with our team.
-          </p>
-        </div>
+        <p className="text-sm text-slate-600 leading-relaxed mb-6">
+          Thank you, <strong className="text-slate-900">{formData.fullName}</strong>. Our admissions coordinator will review your preferences and reach out shortly via WhatsApp or phone with complete batch dates, fee structure, and syllabus details.
+        </p>
 
-        <div className="p-4 rounded-xl bg-gray-50 border border-gray-100 text-xs text-left mb-8 space-y-1">
+        <div className="p-4 rounded-lg bg-slate-50 border border-slate-200/80 text-xs text-left mb-6 space-y-1.5 text-slate-700">
           <p><strong>Enquirer:</strong> {formData.fullName}</p>
           <p><strong>Selected Programme:</strong> {formData.preferredCourse}</p>
           <p><strong>Mobile:</strong> {formData.mobileNumber}</p>
           <p><strong>Schedule:</strong> {formData.preferredSchedule} ({formData.learningMode})</p>
         </div>
 
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
           <Link
             to="/courses"
-            className="w-full sm:w-auto px-6 py-3 rounded-xl border border-brand-border text-brand-navy font-bold text-sm hover:bg-gray-50 transition-colors"
+            className="w-full sm:w-auto px-4 py-2 text-xs font-semibold rounded-lg border border-slate-200 text-slate-700 hover:bg-slate-50 transition-colors shadow-subtle"
           >
             Explore More Courses
           </Link>
           <WhatsAppButton
             message={`Hi, I just submitted an enrolment enquiry for ${formData.preferredCourse} (${formData.fullName}). Could you please share more batch details?`}
             label="Continue on WhatsApp"
-            size="lg"
-            className="w-full sm:w-auto"
+            size="md"
+            className="w-full sm:w-auto rounded-lg"
           />
         </div>
       </div>
@@ -267,23 +263,23 @@ export const EnquiryForm: React.FC = () => {
   }
 
   return (
-    <div className="bg-white rounded-3xl p-6 sm:p-10 border border-brand-border shadow-card max-w-3xl mx-auto">
-      <div className="border-b border-gray-100 pb-6 mb-8">
-        <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-blue-50 text-brand-primary text-xs font-bold uppercase tracking-wider mb-2">
-          <Send className="w-3.5 h-3.5" />
+    <div className="bg-white rounded-xl p-6 sm:p-9 border border-slate-200/90 shadow-sm max-w-3xl mx-auto">
+      <div className="border-b border-slate-100 pb-5 mb-6">
+        <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded text-xs font-semibold uppercase tracking-wider bg-blue-50 text-brand-primary border border-blue-100 mb-2">
+          <Send className="w-3 h-3" />
           <span>Student Enquiry & Registration of Interest</span>
         </div>
-        <h2 className="text-2xl sm:text-3xl font-extrabold text-brand-navy">
+        <h2 className="text-xl sm:text-2xl font-bold text-slate-900 tracking-tight">
           Register Your Programme Interest
         </h2>
-        <p className="text-xs sm:text-sm text-brand-body mt-2 leading-relaxed">
+        <p className="text-xs sm:text-sm text-slate-600 mt-1 leading-relaxed">
           Fill out this form to express your interest in our 3-month industry-supported programmes. Our admissions coordinator will reach out with the detailed syllabus, schedule options, and next steps.
         </p>
       </div>
 
       {submitError && (
-        <div className="mb-6 p-4 rounded-2xl bg-rose-50 border border-rose-200 text-rose-800 text-xs sm:text-sm flex items-start gap-3">
-          <AlertCircle className="w-5 h-5 flex-shrink-0 mt-0.5" />
+        <div className="mb-6 p-4 rounded-lg bg-rose-50 border border-rose-200 text-rose-800 text-xs sm:text-sm flex items-start gap-3">
+          <AlertCircle className="w-4 h-4 flex-shrink-0 mt-0.5" />
           <div>
             <p className="font-semibold">{submitError}</p>
             <div className="mt-2">
@@ -295,7 +291,7 @@ export const EnquiryForm: React.FC = () => {
 
       <form
         onSubmit={handleSubmit}
-        className="space-y-6"
+        className="space-y-5"
         noValidate
       >
         {/* Anti-spam honeypot */}
@@ -315,15 +311,15 @@ export const EnquiryForm: React.FC = () => {
 
         {/* SECTION 1: Personal Details */}
         <div>
-          <h3 className="text-sm font-bold uppercase tracking-wider text-brand-navy mb-4 flex items-center gap-2">
-            <span className="w-6 h-6 rounded-full bg-brand-pale text-brand-primary flex items-center justify-center text-xs">1</span>
+          <h3 className="text-xs font-bold uppercase tracking-wider text-slate-900 mb-3 flex items-center gap-2">
+            <span className="w-5 h-5 rounded bg-blue-50 text-brand-primary border border-blue-100 flex items-center justify-center text-xs font-bold">1</span>
             <span>Contact Information</span>
           </h3>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
             {/* Full Name */}
             <div>
-              <label htmlFor="fullName" className="block text-xs font-bold text-gray-700 mb-1">
+              <label htmlFor="fullName" className="block text-xs font-semibold text-slate-700 mb-1">
                 Full Name <span className="text-rose-500">*</span>
               </label>
               <input
@@ -334,8 +330,8 @@ export const EnquiryForm: React.FC = () => {
                 value={formData.fullName}
                 onChange={handleChange}
                 placeholder="e.g. Rahul Sharma"
-                className={`w-full px-4 py-2.5 rounded-xl border text-sm text-gray-900 focus:ring-2 focus:ring-brand-primary focus:border-brand-primary transition-all ${
-                  errors.fullName ? 'border-rose-400 bg-rose-50/30' : 'border-gray-200'
+                className={`w-full px-3.5 py-2 rounded-lg border text-sm text-slate-900 focus:ring-2 focus:ring-brand-primary focus:border-brand-primary transition-all ${
+                  errors.fullName ? 'border-rose-400 bg-rose-50/30' : 'border-slate-200'
                 }`}
               />
               {errors.fullName && (
@@ -345,7 +341,7 @@ export const EnquiryForm: React.FC = () => {
 
             {/* Mobile Number */}
             <div>
-              <label htmlFor="mobileNumber" className="block text-xs font-bold text-gray-700 mb-1">
+              <label htmlFor="mobileNumber" className="block text-xs font-semibold text-slate-700 mb-1">
                 Mobile Number (WhatsApp preferred) <span className="text-rose-500">*</span>
               </label>
               <input
@@ -356,8 +352,8 @@ export const EnquiryForm: React.FC = () => {
                 value={formData.mobileNumber}
                 onChange={handleChange}
                 placeholder="e.g. 9876543210"
-                className={`w-full px-4 py-2.5 rounded-xl border text-sm text-gray-900 focus:ring-2 focus:ring-brand-primary focus:border-brand-primary transition-all ${
-                  errors.mobileNumber ? 'border-rose-400 bg-rose-50/30' : 'border-gray-200'
+                className={`w-full px-3.5 py-2 rounded-lg border text-sm text-slate-900 focus:ring-2 focus:ring-brand-primary focus:border-brand-primary transition-all ${
+                  errors.mobileNumber ? 'border-rose-400 bg-rose-50/30' : 'border-slate-200'
                 }`}
               />
               {errors.mobileNumber && (
@@ -367,7 +363,7 @@ export const EnquiryForm: React.FC = () => {
 
             {/* Email Address */}
             <div className="sm:col-span-2">
-              <label htmlFor="email" className="block text-xs font-bold text-gray-700 mb-1">
+              <label htmlFor="email" className="block text-xs font-semibold text-slate-700 mb-1">
                 Email Address <span className="text-rose-500">*</span>
               </label>
               <input
@@ -378,8 +374,8 @@ export const EnquiryForm: React.FC = () => {
                 value={formData.email}
                 onChange={handleChange}
                 placeholder="e.g. rahul@example.com"
-                className={`w-full px-4 py-2.5 rounded-xl border text-sm text-gray-900 focus:ring-2 focus:ring-brand-primary focus:border-brand-primary transition-all ${
-                  errors.email ? 'border-rose-400 bg-rose-50/30' : 'border-gray-200'
+                className={`w-full px-3.5 py-2 rounded-lg border text-sm text-slate-900 focus:ring-2 focus:ring-brand-primary focus:border-brand-primary transition-all ${
+                  errors.email ? 'border-rose-400 bg-rose-50/30' : 'border-slate-200'
                 }`}
               />
               {errors.email && (
@@ -390,16 +386,16 @@ export const EnquiryForm: React.FC = () => {
         </div>
 
         {/* SECTION 2: Course & Schedule Preferences */}
-        <div className="pt-4 border-t border-gray-100">
-          <h3 className="text-sm font-bold uppercase tracking-wider text-brand-navy mb-4 flex items-center gap-2">
-            <span className="w-6 h-6 rounded-full bg-brand-pale text-brand-primary flex items-center justify-center text-xs">2</span>
+        <div className="pt-4 border-t border-slate-100">
+          <h3 className="text-xs font-bold uppercase tracking-wider text-slate-900 mb-3 flex items-center gap-2">
+            <span className="w-5 h-5 rounded bg-blue-50 text-brand-primary border border-blue-100 flex items-center justify-center text-xs font-bold">2</span>
             <span>Programme & Schedule Preferences</span>
           </h3>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
             {/* Preferred Course */}
             <div className="sm:col-span-2">
-              <label htmlFor="preferredCourse" className="block text-xs font-bold text-gray-700 mb-1">
+              <label htmlFor="preferredCourse" className="block text-xs font-semibold text-slate-700 mb-1">
                 Preferred Programme <span className="text-rose-500">*</span>
               </label>
               <select
@@ -408,8 +404,8 @@ export const EnquiryForm: React.FC = () => {
                 required
                 value={formData.preferredCourse}
                 onChange={handleChange}
-                className={`w-full px-4 py-2.5 rounded-xl border text-sm text-gray-900 focus:ring-2 focus:ring-brand-primary focus:border-brand-primary transition-all bg-white ${
-                  errors.preferredCourse ? 'border-rose-400 bg-rose-50/30' : 'border-gray-200'
+                className={`w-full px-3.5 py-2 rounded-lg border text-sm text-slate-900 focus:ring-2 focus:ring-brand-primary focus:border-brand-primary transition-all bg-white ${
+                  errors.preferredCourse ? 'border-rose-400 bg-rose-50/30' : 'border-slate-200'
                 }`}
               >
                 <option value="">-- Select a 3-Month Programme --</option>
@@ -425,7 +421,7 @@ export const EnquiryForm: React.FC = () => {
 
             {/* Preferred Schedule */}
             <div>
-              <label htmlFor="preferredSchedule" className="block text-xs font-bold text-gray-700 mb-1">
+              <label htmlFor="preferredSchedule" className="block text-xs font-semibold text-slate-700 mb-1">
                 Preferred Schedule <span className="text-rose-500">*</span>
               </label>
               <select
@@ -434,7 +430,7 @@ export const EnquiryForm: React.FC = () => {
                 required
                 value={formData.preferredSchedule}
                 onChange={handleChange}
-                className="w-full px-4 py-2.5 rounded-xl border border-gray-200 text-sm text-gray-900 focus:ring-2 focus:ring-brand-primary bg-white"
+                className="w-full px-3.5 py-2 rounded-lg border border-slate-200 text-sm text-slate-900 focus:ring-2 focus:ring-brand-primary bg-white"
               >
                 <option value="Flexible">Flexible (Either weekday or weekend)</option>
                 <option value="Weekday">Weekday Batches (Evening)</option>
@@ -444,7 +440,7 @@ export const EnquiryForm: React.FC = () => {
 
             {/* Learning Mode */}
             <div>
-              <label htmlFor="learningMode" className="block text-xs font-bold text-gray-700 mb-1">
+              <label htmlFor="learningMode" className="block text-xs font-semibold text-slate-700 mb-1">
                 Learning Mode <span className="text-rose-500">*</span>
               </label>
               <select
@@ -453,7 +449,7 @@ export const EnquiryForm: React.FC = () => {
                 required
                 value={formData.learningMode}
                 onChange={handleChange}
-                className="w-full px-4 py-2.5 rounded-xl border border-gray-200 text-sm text-gray-900 focus:ring-2 focus:ring-brand-primary bg-white"
+                className="w-full px-3.5 py-2 rounded-lg border border-slate-200 text-sm text-slate-900 focus:ring-2 focus:ring-brand-primary bg-white"
               >
                 <option value="Need guidance">Need guidance on best mode</option>
                 <option value="Online">Online Interactive Sessions</option>
@@ -465,16 +461,16 @@ export const EnquiryForm: React.FC = () => {
         </div>
 
         {/* SECTION 3: Academic / Background (Optional) */}
-        <div className="pt-4 border-t border-gray-100">
-          <h3 className="text-sm font-bold uppercase tracking-wider text-brand-navy mb-4 flex items-center gap-2">
-            <span className="w-6 h-6 rounded-full bg-brand-pale text-brand-primary flex items-center justify-center text-xs">3</span>
+        <div className="pt-4 border-t border-slate-100">
+          <h3 className="text-xs font-bold uppercase tracking-wider text-slate-900 mb-3 flex items-center gap-2">
+            <span className="w-5 h-5 rounded bg-blue-50 text-brand-primary border border-blue-100 flex items-center justify-center text-xs font-bold">3</span>
             <span>Academic & Professional Profile (Optional)</span>
           </h3>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
             {/* Current Status */}
             <div>
-              <label htmlFor="currentStatus" className="block text-xs font-bold text-gray-700 mb-1">
+              <label htmlFor="currentStatus" className="block text-xs font-semibold text-slate-700 mb-1">
                 Current Status <span className="text-rose-500">*</span>
               </label>
               <select
@@ -483,7 +479,7 @@ export const EnquiryForm: React.FC = () => {
                 required
                 value={formData.currentStatus}
                 onChange={handleChange}
-                className="w-full px-4 py-2.5 rounded-xl border border-gray-200 text-sm text-gray-900 focus:ring-2 focus:ring-brand-primary bg-white"
+                className="w-full px-3.5 py-2 rounded-lg border border-slate-200 text-sm text-slate-900 focus:ring-2 focus:ring-brand-primary bg-white"
               >
                 <option value="Student">Current College Student</option>
                 <option value="Recent graduate">Recent Graduate</option>
@@ -494,7 +490,7 @@ export const EnquiryForm: React.FC = () => {
 
             {/* College or Organization */}
             <div>
-              <label htmlFor="collegeOrOrganization" className="block text-xs font-bold text-gray-700 mb-1">
+              <label htmlFor="collegeOrOrganization" className="block text-xs font-semibold text-slate-700 mb-1">
                 College / Organization
               </label>
               <input
@@ -504,13 +500,13 @@ export const EnquiryForm: React.FC = () => {
                 value={formData.collegeOrOrganization}
                 onChange={handleChange}
                 placeholder="e.g. Anna University / Tech Corp"
-                className="w-full px-4 py-2.5 rounded-xl border border-gray-200 text-sm text-gray-900 focus:ring-2 focus:ring-brand-primary"
+                className="w-full px-3.5 py-2 rounded-lg border border-slate-200 text-sm text-slate-900 focus:ring-2 focus:ring-brand-primary"
               />
             </div>
 
             {/* Degree / Branch */}
             <div>
-              <label htmlFor="degree" className="block text-xs font-bold text-gray-700 mb-1">
+              <label htmlFor="degree" className="block text-xs font-semibold text-slate-700 mb-1">
                 Degree / Branch
               </label>
               <input
@@ -520,13 +516,13 @@ export const EnquiryForm: React.FC = () => {
                 value={formData.degree}
                 onChange={handleChange}
                 placeholder="e.g. B.E. EEE / B.Tech CSE"
-                className="w-full px-4 py-2.5 rounded-xl border border-gray-200 text-sm text-gray-900 focus:ring-2 focus:ring-brand-primary"
+                className="w-full px-3.5 py-2 rounded-lg border border-slate-200 text-sm text-slate-900 focus:ring-2 focus:ring-brand-primary"
               />
             </div>
 
             {/* Graduation Year */}
             <div>
-              <label htmlFor="graduationYear" className="block text-xs font-bold text-gray-700 mb-1">
+              <label htmlFor="graduationYear" className="block text-xs font-semibold text-slate-700 mb-1">
                 Year of Study / Graduation
               </label>
               <input
@@ -536,13 +532,13 @@ export const EnquiryForm: React.FC = () => {
                 value={formData.graduationYear}
                 onChange={handleChange}
                 placeholder="e.g. 3rd Year / 2026"
-                className="w-full px-4 py-2.5 rounded-xl border border-gray-200 text-sm text-gray-900 focus:ring-2 focus:ring-brand-primary"
+                className="w-full px-3.5 py-2 rounded-lg border border-slate-200 text-sm text-slate-900 focus:ring-2 focus:ring-brand-primary"
               />
             </div>
 
             {/* Goals / Questions */}
             <div className="sm:col-span-2">
-              <label htmlFor="learningGoals" className="block text-xs font-bold text-gray-700 mb-1">
+              <label htmlFor="learningGoals" className="block text-xs font-semibold text-slate-700 mb-1">
                 What are your main learning goals or project ideas?
               </label>
               <textarea
@@ -552,16 +548,16 @@ export const EnquiryForm: React.FC = () => {
                 value={formData.learningGoals}
                 onChange={handleChange}
                 placeholder="Tell us what you hope to build or learn during this 3-month journey..."
-                className="w-full px-4 py-2.5 rounded-xl border border-gray-200 text-sm text-gray-900 focus:ring-2 focus:ring-brand-primary"
+                className="w-full px-3.5 py-2 rounded-lg border border-slate-200 text-sm text-slate-900 focus:ring-2 focus:ring-brand-primary"
               ></textarea>
             </div>
           </div>
         </div>
 
         {/* SECTION 4: Consent & Legal Checkboxes */}
-        <div className="pt-4 border-t border-gray-100 space-y-3">
+        <div className="pt-4 border-t border-slate-100 space-y-2.5">
           {/* Contact Consent */}
-          <div className="flex items-start gap-3">
+          <div className="flex items-start gap-2.5">
             <input
               type="checkbox"
               id="contactConsent"
@@ -569,18 +565,18 @@ export const EnquiryForm: React.FC = () => {
               required
               checked={formData.contactConsent}
               onChange={handleChange}
-              className="w-4 h-4 rounded text-brand-primary focus:ring-brand-primary border-gray-300 mt-1 cursor-pointer"
+              className="w-4 h-4 rounded text-brand-primary focus:ring-brand-primary border-slate-300 mt-0.5 cursor-pointer"
             />
-            <label htmlFor="contactConsent" className="text-xs text-brand-body leading-normal cursor-pointer">
+            <label htmlFor="contactConsent" className="text-xs text-slate-600 leading-normal cursor-pointer">
               I consent to being contacted by Impara Creative Labs via WhatsApp, phone, or email regarding this programme enquiry and available batch dates. <span className="text-rose-500">*</span>
             </label>
           </div>
           {errors.contactConsent && (
-            <p className="text-xs text-rose-600 font-medium pl-7">{errors.contactConsent}</p>
+            <p className="text-xs text-rose-600 font-medium pl-6">{errors.contactConsent}</p>
           )}
 
           {/* Privacy Policy Consent */}
-          <div className="flex items-start gap-3">
+          <div className="flex items-start gap-2.5">
             <input
               type="checkbox"
               id="privacyConsent"
@@ -588,41 +584,41 @@ export const EnquiryForm: React.FC = () => {
               required
               checked={formData.privacyConsent}
               onChange={handleChange}
-              className="w-4 h-4 rounded text-brand-primary focus:ring-brand-primary border-gray-300 mt-1 cursor-pointer"
+              className="w-4 h-4 rounded text-brand-primary focus:ring-brand-primary border-slate-300 mt-0.5 cursor-pointer"
             />
-            <label htmlFor="privacyConsent" className="text-xs text-brand-body leading-normal cursor-pointer">
+            <label htmlFor="privacyConsent" className="text-xs text-slate-600 leading-normal cursor-pointer">
               I have read and agree to the{' '}
-              <Link to="/privacy-policy" className="text-brand-primary font-bold underline">
+              <Link to="/privacy-policy" className="text-brand-primary font-semibold underline">
                 Privacy Policy
               </Link>{' '}
               and understand that this submission is an enquiry of interest and does not represent an admission guarantee. <span className="text-rose-500">*</span>
             </label>
           </div>
           {errors.privacyConsent && (
-            <p className="text-xs text-rose-600 font-medium pl-7">{errors.privacyConsent}</p>
+            <p className="text-xs text-rose-600 font-medium pl-6">{errors.privacyConsent}</p>
           )}
         </div>
 
         {/* Submit Button */}
-        <div className="pt-6">
+        <div className="pt-4">
           <button
             type="submit"
             disabled={isSubmitting}
-            className="w-full py-4 px-6 rounded-2xl bg-brand-primary hover:bg-[#0756c4] text-white font-extrabold text-base shadow-xl hover:shadow-2xl transition-all transform hover:-translate-y-0.5 disabled:opacity-60 disabled:cursor-not-allowed flex items-center justify-center gap-2 cursor-pointer"
+            className="w-full py-3 px-5 rounded-lg bg-brand-primary hover:bg-brand-primary-hover text-white font-semibold text-sm shadow-sm transition-all disabled:opacity-60 disabled:cursor-not-allowed flex items-center justify-center gap-2 cursor-pointer"
           >
             {isSubmitting ? (
               <>
-                <Loader2 className="w-5 h-5 animate-spin" />
+                <Loader2 className="w-4 h-4 animate-spin" />
                 <span>Submitting Your Enquiry...</span>
               </>
             ) : (
               <>
                 <span>Submit Programme Enquiry</span>
-                <Send className="w-5 h-5" />
+                <Send className="w-4 h-4" />
               </>
             )}
           </button>
-          <p className="text-center text-[11px] text-gray-500 mt-3 flex items-center justify-center gap-1.5">
+          <p className="text-center text-[11px] text-slate-400 mt-2.5 flex items-center justify-center gap-1.5">
             <ShieldCheck className="w-3.5 h-3.5 text-emerald-600" />
             <span>Your information is handled strictly for educational consultation. No spam.</span>
           </p>

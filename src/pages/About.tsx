@@ -20,98 +20,100 @@ export const About: React.FC = () => {
     {
       title: "IoT & Smart Automation",
       desc: "Microcontroller architecture, firmware development, sensors, actuators, industrial protocols (MQTT, HTTP), and cloud automation.",
-      icon: <Cpu className="w-5 h-5 text-brand-primary" />,
+      icon: <Cpu className="w-4 h-4 text-brand-primary" />,
     },
     {
       title: "Full Stack Development",
       desc: "Modern React web applications, enterprise Core Java, Spring Boot REST APIs, relational SQL databases, and AI integration.",
-      icon: <Code2 className="w-5 h-5 text-brand-primary" />,
+      icon: <Code2 className="w-4 h-4 text-brand-primary" />,
     },
     {
       title: "AI & Generative AI",
       desc: "Large Language Models, Context Engineering, RAG vector pipelines, Model Context Protocol (MCP), and autonomous AI agents.",
-      icon: <BrainCircuit className="w-5 h-5 text-brand-primary" />,
+      icon: <BrainCircuit className="w-4 h-4 text-brand-primary" />,
     },
     {
       title: "Data & Emerging Technologies",
       desc: "Connected cloud dashboards, telemetry analytics, edge computer vision, ESP32-CAM processing, and smart devices.",
-      icon: <Layers className="w-5 h-5 text-brand-primary" />,
+      icon: <Layers className="w-4 h-4 text-brand-primary" />,
     },
     {
       title: "Robotics and Automation",
       desc: "Microcontrollers, motor control, sensor fusion, and applied hardware automation.",
-      icon: <Bot className="w-5 h-5 text-brand-primary" />,
+      icon: <Bot className="w-4 h-4 text-brand-primary" />,
     },
     {
       title: "Smart Systems",
       desc: "Real-time telematics, IoT cloud platforms (Blynk, AWS IoT, ThingSpeak), and automated IFTTT event workflows.",
-      icon: <Radio className="w-5 h-5 text-brand-primary" />,
+      icon: <Radio className="w-4 h-4 text-brand-primary" />,
     },
   ];
 
   return (
     <div className="flex flex-col min-h-screen bg-white">
       {/* Hero Header */}
-      <section className="bg-gradient-to-b from-brand-pale via-white to-white py-16 sm:py-24 border-b border-brand-border">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-blue-100 text-brand-primary text-xs font-bold uppercase tracking-wider">
-            <Sparkles className="w-3.5 h-3.5" />
+      <section className="relative overflow-hidden bg-white py-14 sm:py-20 border-b border-slate-200/80">
+        <div className="absolute inset-0 bg-grid-subtle opacity-30 pointer-events-none [mask-image:radial-gradient(ellipse_at_top,white_40%,transparent_80%)]"></div>
+
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-4 relative z-10">
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-50 border border-slate-200 shadow-subtle text-xs font-semibold text-slate-700">
+            <Sparkles className="w-3.5 h-3.5 text-brand-primary" />
             <span>Our Origin & Philosophy</span>
           </div>
 
-          <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black text-brand-navy tracking-tight leading-tight">
+          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 tracking-tight leading-[1.15]">
             Making Technology Learning More{' '}
-            <span className="text-gradient">Creative, Practical and Accessible.</span>
+            <span className="text-brand-primary">Practical, Creative & Accessible.</span>
           </h1>
 
-          <p className="text-base sm:text-lg text-brand-body leading-relaxed max-w-3xl mx-auto font-normal">
+          <p className="text-sm sm:text-base text-slate-600 leading-relaxed max-w-2xl mx-auto font-normal">
             Impara Creative Labs was founded to solve a critical challenge in technical education: the gap between textbook theory and actual, working engineering systems. We enable learners to transition from memorizing concepts to building real, demonstrable prototypes.
           </p>
         </div>
       </section>
 
       {/* Mission & Vision */}
-      <section className="py-20 bg-white">
+      <section className="py-16 sm:py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {/* Mission */}
-            <div className="bg-brand-pale rounded-3xl p-8 sm:p-12 border border-brand-border shadow-card relative overflow-hidden flex flex-col justify-between">
+            <div className="bg-slate-50/80 rounded-xl p-7 sm:p-9 border border-slate-200/80 shadow-subtle flex flex-col justify-between">
               <div>
-                <div className="w-12 h-12 rounded-2xl bg-white border border-brand-border flex items-center justify-center text-brand-primary mb-6 shadow-sm">
-                  <Target className="w-6 h-6" />
+                <div className="w-10 h-10 rounded-lg bg-blue-50 border border-blue-100 flex items-center justify-center text-brand-primary mb-4">
+                  <Target className="w-5 h-5" />
                 </div>
-                <span className="text-xs font-bold uppercase tracking-wider text-brand-primary">
+                <span className="text-xs font-semibold uppercase tracking-wider text-brand-primary">
                   Our Mission
                 </span>
-                <h2 className="text-2xl sm:text-3xl font-extrabold text-brand-navy mt-1 mb-4">
+                <h2 className="text-xl sm:text-2xl font-bold text-slate-900 mt-1 mb-3">
                   Transforming Ideas into Working Solutions
                 </h2>
-                <blockquote className="text-sm sm:text-base text-brand-body leading-relaxed italic bg-white p-5 rounded-2xl border border-brand-border/80">
+                <blockquote className="text-xs sm:text-sm text-slate-700 leading-relaxed italic bg-white p-4 rounded-lg border border-slate-200/80 shadow-subtle">
                   “To make modern technology education more practical, creative and accessible, empowering learners to transform ideas into working solutions.”
                 </blockquote>
               </div>
-              <p className="text-xs text-brand-body/80 mt-6 leading-relaxed">
+              <p className="text-xs text-slate-500 mt-5 leading-relaxed">
                 We believe students discover true engineering instinct when they hold real hardware, write real firmware, debug errors in real-time, and see their systems communicate.
               </p>
             </div>
 
             {/* Vision */}
-            <div className="bg-brand-navy text-white rounded-3xl p-8 sm:p-12 shadow-xl relative overflow-hidden flex flex-col justify-between">
+            <div className="bg-slate-900 text-white rounded-xl p-7 sm:p-9 border border-slate-800 shadow-md flex flex-col justify-between">
               <div>
-                <div className="w-12 h-12 rounded-2xl bg-white/10 border border-white/20 flex items-center justify-center text-blue-200 mb-6">
-                  <Compass className="w-6 h-6" />
+                <div className="w-10 h-10 rounded-lg bg-white/10 border border-white/15 flex items-center justify-center text-blue-300 mb-4">
+                  <Compass className="w-5 h-5" />
                 </div>
-                <span className="text-xs font-bold uppercase tracking-wider text-blue-300">
+                <span className="text-xs font-semibold uppercase tracking-wider text-slate-400">
                   Our Vision
                 </span>
-                <h2 className="text-2xl sm:text-3xl font-extrabold text-white mt-1 mb-4">
+                <h2 className="text-xl sm:text-2xl font-bold text-white mt-1 mb-3">
                   A Destination for Real Project Excellence
                 </h2>
-                <blockquote className="text-sm sm:text-base text-blue-100 leading-relaxed italic bg-white/10 p-5 rounded-2xl border border-white/15">
+                <blockquote className="text-xs sm:text-sm text-slate-300 leading-relaxed italic bg-white/5 p-4 rounded-lg border border-white/10">
                   “To become a trusted destination for project-driven technology education, innovation and industry-relevant skill development.”
                 </blockquote>
               </div>
-              <p className="text-xs text-blue-200/80 mt-6 leading-relaxed">
+              <p className="text-xs text-slate-400 mt-5 leading-relaxed">
                 Nurturing a new generation of inventors, hardware engineers, and software architects equipped with practical capabilities.
               </p>
             </div>
@@ -120,47 +122,47 @@ export const About: React.FC = () => {
       </section>
 
       {/* Why Impara Exists: Theory vs Reality */}
-      <section className="py-20 bg-brand-pale/50 border-y border-brand-border">
+      <section className="py-16 bg-slate-50/60 border-y border-slate-200/80">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-3xl mx-auto mb-16">
-            <span className="text-xs font-bold uppercase tracking-widest text-brand-primary">
+          <div className="text-center max-w-2xl mx-auto mb-12">
+            <span className="text-xs font-semibold uppercase tracking-wider text-brand-primary">
               The Impara Difference
             </span>
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-brand-navy mt-2">
+            <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 mt-1 tracking-tight">
               Why Project-Driven Learning Outperforms Theory Alone
             </h2>
-            <p className="text-sm text-brand-body mt-3">
+            <p className="text-xs sm:text-sm text-slate-600 mt-1.5 leading-relaxed">
               Traditional classrooms often stop at circuit diagrams on chalkboards or code snippets on lecture slides. Here is how Impara bridges the gap:
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="bg-white rounded-2xl p-6 border border-brand-border shadow-card space-y-3">
-              <div className="w-10 h-10 rounded-xl bg-blue-50 text-brand-primary flex items-center justify-center font-bold">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="bg-white rounded-xl p-6 border border-slate-200/80 shadow-subtle space-y-2.5">
+              <div className="w-8 h-8 rounded-lg bg-blue-50 text-brand-primary flex items-center justify-center font-bold text-xs border border-blue-100">
                 1
               </div>
-              <h3 className="text-lg font-bold text-brand-navy">Hands-on Experimentation</h3>
-              <p className="text-xs text-brand-body leading-relaxed">
+              <h3 className="text-base font-bold text-slate-900">Hands-on Experimentation</h3>
+              <p className="text-xs text-slate-600 leading-relaxed">
                 Learners work directly with microcontrollers, breadboards, sensors, cloud brokers, and codebases. Understanding failure modes and debugging in hardware is where true mastery happens.
               </p>
             </div>
 
-            <div className="bg-white rounded-2xl p-6 border border-brand-border shadow-card space-y-3">
-              <div className="w-10 h-10 rounded-xl bg-blue-50 text-brand-primary flex items-center justify-center font-bold">
+            <div className="bg-white rounded-xl p-6 border border-slate-200/80 shadow-subtle space-y-2.5">
+              <div className="w-8 h-8 rounded-lg bg-blue-50 text-brand-primary flex items-center justify-center font-bold text-xs border border-blue-100">
                 2
               </div>
-              <h3 className="text-lg font-bold text-brand-navy">The Capstone-Based Approach</h3>
-              <p className="text-xs text-brand-body leading-relaxed">
+              <h3 className="text-base font-bold text-slate-900">The Capstone-Based Approach</h3>
+              <p className="text-xs text-slate-600 leading-relaxed">
                 Every curriculum culminates in an end-to-end Capstone Project. Students define a problem statement, select hardware, write firmware, connect cloud dashboards, and present a working demo.
               </p>
             </div>
 
-            <div className="bg-white rounded-2xl p-6 border border-brand-border shadow-card space-y-3">
-              <div className="w-10 h-10 rounded-xl bg-blue-50 text-brand-primary flex items-center justify-center font-bold">
+            <div className="bg-white rounded-xl p-6 border border-slate-200/80 shadow-subtle space-y-2.5">
+              <div className="w-8 h-8 rounded-lg bg-blue-50 text-brand-primary flex items-center justify-center font-bold text-xs border border-blue-100">
                 3
               </div>
-              <h3 className="text-lg font-bold text-brand-navy">Flexible Learning Options</h3>
-              <p className="text-xs text-brand-body leading-relaxed">
+              <h3 className="text-base font-bold text-slate-900">Flexible Learning Options</h3>
+              <p className="text-xs text-slate-600 leading-relaxed">
                 Whether attending interactive online sessions or hands-on laboratory workshops, students can choose weekday evening or weekend batch tracks that align with their university or work schedules.
               </p>
             </div>
@@ -169,33 +171,33 @@ export const About: React.FC = () => {
       </section>
 
       {/* Domains of Operation */}
-      <section className="py-20 bg-white">
+      <section className="py-16 sm:py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-2xl mx-auto mb-16">
-            <span className="text-xs font-bold uppercase tracking-widest text-brand-primary">
+          <div className="text-center max-w-2xl mx-auto mb-12">
+            <span className="text-xs font-semibold uppercase tracking-wider text-brand-primary">
               Core Expertise
             </span>
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-brand-navy mt-2">
+            <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 mt-1 tracking-tight">
               Technology Domains We Operate In
             </h2>
-            <p className="text-sm text-brand-body mt-3">
+            <p className="text-xs sm:text-sm text-slate-600 mt-1.5">
               Practical learning across interconnected engineering domains.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {domains.map((dom) => (
               <div
                 key={dom.title}
-                className="bg-white rounded-2xl p-6 border border-brand-border shadow-card hover:shadow-card-hover transition-all"
+                className="bg-white rounded-xl p-5 border border-slate-200/80 hover:border-slate-300 shadow-subtle transition-all"
               >
-                <div className="w-11 h-11 rounded-xl bg-brand-pale flex items-center justify-center mb-4 border border-brand-border">
+                <div className="w-8 h-8 rounded-lg bg-blue-50/80 flex items-center justify-center mb-3 border border-blue-100">
                   {dom.icon}
                 </div>
-                <h3 className="text-base font-extrabold text-brand-navy mb-2">
+                <h3 className="text-sm font-bold text-slate-900 mb-1">
                   {dom.title}
                 </h3>
-                <p className="text-xs text-brand-body leading-relaxed">
+                <p className="text-xs text-slate-600 leading-relaxed">
                   {dom.desc}
                 </p>
               </div>
@@ -211,28 +213,28 @@ export const About: React.FC = () => {
       <FounderSection />
 
       {/* CTA */}
-      <section className="py-20 bg-brand-pale text-center border-t border-brand-border">
-        <div className="max-w-3xl mx-auto px-4 space-y-4">
-          <h2 className="text-3xl font-extrabold text-brand-navy">
+      <section className="py-16 bg-slate-50 border-t border-slate-200/80 text-center">
+        <div className="max-w-2xl mx-auto px-4 space-y-3">
+          <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight">
             Start Your Journey with Impara Today
           </h2>
-          <p className="text-sm text-brand-body max-w-xl mx-auto">
+          <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
             Explore our 3-month programmes or connect directly with our admissions and technical mentoring team.
           </p>
-          <div className="pt-4 flex flex-wrap items-center justify-center gap-4">
+          <div className="pt-3 flex flex-wrap items-center justify-center gap-3">
             <Link
               to="/courses"
-              className="px-6 py-3 rounded-xl bg-brand-primary text-white font-bold text-sm shadow-md hover:bg-[#0756c4] transition-all"
+              className="px-5 py-2.5 rounded-lg bg-brand-primary text-white font-semibold text-sm shadow-sm hover:bg-brand-primary-hover transition-all"
             >
               Browse Programmes
             </Link>
             <Link
               to="/enroll"
-              className="px-6 py-3 rounded-xl border border-brand-border bg-white text-brand-navy font-bold text-sm hover:bg-gray-50 transition-all"
+              className="px-5 py-2.5 rounded-lg border border-slate-200 bg-white text-slate-700 font-semibold text-sm hover:bg-slate-50 transition-all shadow-subtle"
             >
               Submit Enrolment Enquiry
             </Link>
-            <WhatsAppButton size="md" label="Chat on WhatsApp" />
+            <WhatsAppButton size="md" label="Chat on WhatsApp" className="rounded-lg" />
           </div>
         </div>
       </section>

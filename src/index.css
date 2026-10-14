@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -7,14 +7,23 @@
 @layer base {
   html {
     scroll-behavior: smooth;
-    font-family: 'Plus Jakarta Sans', 'Inter', system-ui, -apple-system, sans-serif;
-    color: #253653;
+    font-family: 'Plus Jakarta Sans', Inter, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    color: #334155;
     background-color: #FFFFFF;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 
   body {
     min-height: 100vh;
     overflow-x: hidden;
+    line-height: 1.6;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    color: #0A192F;
+    letter-spacing: -0.02em;
+    font-weight: 700;
   }
 
   /* Accessible focus indicators */
@@ -22,20 +31,36 @@
     outline: 2px solid #0866E8;
     outline-offset: 2px;
   }
+
+  /* Respect reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    ::before,
+    ::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
 }
 
 @layer utilities {
+  /* Subtle, professional dual-tone gradient for key hero emphasis */
   .text-gradient {
-    background: linear-gradient(135deg, #091B78 0%, #0866E8 50%, #159CF5 100%);
+    background: linear-gradient(135deg, #0A192F 20%, #0866E8 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
   }
 
-  .bg-gradient-brand {
-    background: linear-gradient(135deg, #091B78 0%, #0866E8 100%);
+  /* Clean subtle grid background for hero & technical sections */
+  .bg-grid-subtle {
+    background-image: radial-gradient(rgba(148, 163, 184, 0.22) 1px, transparent 1px);
+    background-size: 24px 24px;
   }
 
-  .bg-gradient-subtle {
-    background: linear-gradient(180deg, #F0F7FF 0%, #FFFFFF 100%);
+  /* Hairline borders */
+  .border-hairline {
+    border-color: rgba(226, 232, 240, 0.9);
   }
 }

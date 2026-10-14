@@ -4,36 +4,36 @@ import { siteConfig } from '../config/site';
 
 export const PrivacyPolicy: React.FC = () => {
   return (
-    <div className="flex flex-col min-h-screen bg-white py-16 sm:py-20">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="mb-10 text-center">
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-blue-100 text-brand-primary text-xs font-bold uppercase tracking-wider mb-3">
+    <div className="flex flex-col min-h-screen bg-white py-14 sm:py-18">
+      <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="mb-8 text-center">
+          <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded text-xs font-semibold uppercase tracking-wider bg-blue-50 text-brand-primary border border-blue-100 mb-2.5">
             <ShieldCheck className="w-3.5 h-3.5" />
             <span>Data Transparency</span>
           </div>
-          <h1 className="text-3xl sm:text-4xl font-black text-brand-navy tracking-tight">
+          <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-slate-900 tracking-tight">
             Privacy Policy
           </h1>
-          <p className="text-xs sm:text-sm text-brand-body mt-2">
+          <p className="text-xs text-slate-500 mt-1.5">
             Last Updated: October 2026 • Impara Creative Labs | Powered by TechKnots
           </p>
         </div>
 
         {/* Notice Banner */}
-        <div className="p-4 rounded-2xl bg-brand-pale border border-brand-border flex items-start gap-3 mb-8 text-xs text-brand-body">
+        <div className="p-4 rounded-xl bg-slate-50 border border-slate-200/80 flex items-start gap-3 mb-8 text-xs text-slate-600 leading-relaxed">
           <Info className="w-4 h-4 text-brand-primary flex-shrink-0 mt-0.5" />
           <p>
             This privacy policy outlines how Impara Creative Labs collects, uses, and safeguards the information you provide when using our website and submitting programme enquiries. This policy is a template subject to final legal review prior to commercial operations.
           </p>
         </div>
 
-        <div className="prose prose-blue max-w-none space-y-8 text-xs sm:text-sm text-brand-body leading-relaxed">
-          <section className="space-y-3">
-            <h2 className="text-lg font-bold text-brand-navy">1. Information We Collect</h2>
+        <div className="space-y-6 text-xs sm:text-sm text-slate-600 leading-relaxed">
+          <section className="space-y-2.5">
+            <h2 className="text-base font-bold text-slate-900">1. Information We Collect</h2>
             <p>
               We adhere strictly to minimal data collection. When you submit an interest or enquiry form on our website, we may collect:
             </p>
-            <ul className="list-disc pl-5 space-y-1.5">
+            <ul className="list-disc pl-5 space-y-1">
               <li>Full Name</li>
               <li>Contact details (mobile/WhatsApp number, email address)</li>
               <li>Academic and professional status (student, graduate, working professional)</li>
@@ -41,17 +41,17 @@ export const PrivacyPolicy: React.FC = () => {
               <li>Programme and scheduling preferences (weekday/weekend, learning mode)</li>
               <li>Questions or specific learning goals you choose to share</li>
             </ul>
-            <p className="font-semibold text-brand-navy">
+            <p className="font-semibold text-slate-900 pt-1">
               We do NOT collect payment card numbers, banking credentials, or sensitive personal data on this website.
             </p>
           </section>
 
-          <section className="space-y-3">
-            <h2 className="text-lg font-bold text-brand-navy">2. How We Use Your Information</h2>
+          <section className="space-y-2.5">
+            <h2 className="text-base font-bold text-slate-900">2. How We Use Your Information</h2>
             <p>
               Information submitted via our forms is used exclusively for:
             </p>
-            <ul className="list-disc pl-5 space-y-1.5">
+            <ul className="list-disc pl-5 space-y-1">
               <li>Responding to your specific programme inquiries and answering syllabus questions</li>
               <li>Providing consultation regarding batch schedules, prerequisites, and learning modes</li>
               <li>Communicating via phone, WhatsApp, or email per your explicit consent</li>
@@ -59,36 +59,17 @@ export const PrivacyPolicy: React.FC = () => {
             </ul>
           </section>
 
-          <section className="space-y-3">
-            <h2 className="text-lg font-bold text-brand-navy">3. Third-Party Sharing & Hosting</h2>
+          <section className="space-y-2.5">
+            <h2 className="text-base font-bold text-slate-900">3. Information Sharing & Third Parties</h2>
             <p>
-              We do not sell, rent, or trade your personal information to third-party marketing companies. Form submissions are processed securely through our serverless infrastructure and encrypted cloud endpoints using secure HTTPS connections.
+              We never sell, rent, or trade your personal information to third-party advertisers. Information is accessed only by authorized admissions coordinators and technical educators of Impara Creative Labs and our operational knowledge partner, TechKnots.
             </p>
           </section>
 
-          <section className="space-y-3">
-            <h2 className="text-lg font-bold text-brand-navy">4. Security Measures</h2>
+          <section className="space-y-2.5">
+            <h2 className="text-base font-bold text-slate-900">4. Contact & Opt-Out</h2>
             <p>
-              All interactions on our site are secured via Transport Layer Security (TLS/HTTPS). We employ automated bot filtering and honeypot protection to prevent spam. Internal access to submitted enquiries is restricted to authorized program coordinators.
-            </p>
-          </section>
-
-          <section className="space-y-3">
-            <h2 className="text-lg font-bold text-brand-navy">5. Your Rights and Preferences</h2>
-            <p>
-              You have the right to request access to the information you submitted, ask for corrections, or request that your contact details be removed from our enquiry database at any time. To do so, email us at <a href={`mailto:${siteConfig.contact.email}`} className="text-brand-primary underline">{siteConfig.contact.email}</a>.
-            </p>
-          </section>
-
-          <section className="space-y-3">
-            <h2 className="text-lg font-bold text-brand-navy">6. Contact for Privacy Matters</h2>
-            <p>
-              If you have any questions regarding this Privacy Policy, please contact:
-            </p>
-            <p className="font-semibold text-brand-navy">
-              Impara Creative Labs<br />
-              Email: {siteConfig.contact.email}<br />
-              Phone: {siteConfig.contact.phoneFormatted}
+              You may request deletion or correction of your enquiry data at any time by contacting us directly at {siteConfig.contact.email} or by messaging {siteConfig.contact.phoneFormatted}.
             </p>
           </section>
         </div>

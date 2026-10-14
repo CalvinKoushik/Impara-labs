@@ -1,71 +1,105 @@
 import React from 'react';
-import { GraduationCap, Briefcase, Compass, Code, Rocket } from 'lucide-react';
+import { GraduationCap, Briefcase, Compass, Code, Rocket, CheckCircle2 } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 export const AudienceSection: React.FC = () => {
   const audiences = [
     {
-      title: "Engineering Students",
-      desc: "Gain the tangible hardware, IoT, and software project experience required for academic capstones, hackathons, and campus recruitments.",
-      icon: <GraduationCap className="w-6 h-6 text-brand-primary" />,
+      title: "Core & Circuit Engineering Students",
+      desc: "ECE, EEE, EIE, Mechatronics, and Mechanical engineers seeking hardware-in-the-loop firmware and IoT prototyping experience.",
+      icon: <GraduationCap className="w-4 h-4 text-brand-primary" />,
     },
     {
-      title: "College Students & Recent Graduates",
-      desc: "Bridge the gap between textbook theory and actual industry standards with hands-on labs and mentor-reviewed assignments.",
-      icon: <Briefcase className="w-6 h-6 text-brand-primary" />,
+      title: "Computer Science & IT Undergrads",
+      desc: "Software engineering students wanting to master React, enterprise Core Java, Spring Boot, SQL, and AI workflows.",
+      icon: <Code className="w-4 h-4 text-brand-primary" />,
     },
     {
-      title: "Beginners Interested in Technology",
-      desc: "Structured, beginner-friendly roadmaps that break down microcontrollers, web programming, and AI into clear, manageable steps.",
-      icon: <Compass className="w-6 h-6 text-brand-primary" />,
+      title: "Recent College Graduates",
+      desc: "Graduates preparing for campus placement drives, technical screenings, and high-demand developer roles.",
+      icon: <Briefcase className="w-4 h-4 text-brand-primary" />,
     },
     {
-      title: "Aspiring Developers",
-      desc: "Upgrade your skills with contemporary stacks: TypeScript, React, full-stack APIs, and generative AI API integration.",
-      icon: <Code className="w-6 h-6 text-brand-primary" />,
+      title: "Curious Beginners & Builders",
+      desc: "Motivated learners who want structured roadmaps starting from foundations to tangible Capstone deployment.",
+      icon: <Compass className="w-4 h-4 text-brand-primary" />,
     },
     {
-      title: "Future Innovators & Entrepreneurs",
-      desc: "Transform your concepts into working prototypes with end-to-end guidance from research engineers and founders.",
-      icon: <Rocket className="w-6 h-6 text-brand-primary" />,
+      title: "Future Innovators & Startup Founders",
+      desc: "Builders transforming ideas into working hardware/software prototypes with direct mentor guidance.",
+      icon: <Rocket className="w-4 h-4 text-brand-primary" />,
     },
   ];
 
   return (
-    <section className="py-20 bg-brand-pale/40 border-t border-brand-border">
+    <section className="py-20 bg-slate-50/70 border-t border-slate-200/80">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center max-w-2xl mx-auto mb-16">
-          <span className="text-xs font-bold uppercase tracking-widest text-brand-primary">
-            Who Can Join?
-          </span>
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-brand-navy mt-2">
-            Designed for Curious Builders at Every Stage
-          </h2>
-          <p className="text-sm text-brand-body mt-3">
-            Whether you are stepping into coding for the first time or leveling up your engineering portfolio, our programmes are engineered for practical growth.
-          </p>
-        </div>
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
+          {/* Left Column: Heading & Prerequisites Reassurance (5 cols) */}
+          <div className="lg:col-span-5 space-y-6">
+            <div>
+              <span className="text-xs font-semibold uppercase tracking-wider text-brand-primary">
+                Eligibility & Readiness
+              </span>
+              <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 mt-1 tracking-tight leading-tight">
+                Designed for Curious Builders at Every Stage.
+              </h2>
+            </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {audiences.map((aud, index) => (
-            <div
-              key={aud.title}
-              className={`bg-white rounded-2xl p-6 border border-brand-border shadow-card hover:shadow-card-hover transition-all duration-200 flex flex-col justify-between ${
-                index === 4 ? 'md:col-span-2 lg:col-span-1' : ''
-              }`}
-            >
-              <div>
-                <div className="w-12 h-12 rounded-xl bg-brand-pale flex items-center justify-center mb-4 border border-brand-border">
-                  {aud.icon}
-                </div>
-                <h3 className="text-lg font-extrabold text-brand-navy mb-2">
-                  {aud.title}
-                </h3>
-                <p className="text-xs sm:text-sm text-brand-body leading-relaxed">
-                  {aud.desc}
-                </p>
+            <p className="text-sm text-slate-600 leading-relaxed">
+              Whether you are building your first microcontroller circuit, writing your first Spring Boot REST API, or deploying your first RAG pipeline, our programmes guide you step-by-step.
+            </p>
+
+            <div className="p-5 rounded-xl bg-white border border-slate-200/80 shadow-subtle space-y-3">
+              <h3 className="text-xs font-bold uppercase tracking-wider text-slate-900">
+                What You Need to Get Started
+              </h3>
+              <ul className="space-y-2 text-xs text-slate-600">
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-emerald-500 flex-shrink-0 mt-0.5" />
+                  <span>Curiosity and commitment to active project building</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-emerald-500 flex-shrink-0 mt-0.5" />
+                  <span>A standard laptop for coding, simulation, and IDEs</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-emerald-500 flex-shrink-0 mt-0.5" />
+                  <span>No prior advanced industrial experience required</span>
+                </li>
+              </ul>
+              <div className="pt-2">
+                <Link
+                  to="/enroll"
+                  className="text-xs font-semibold text-brand-primary hover:text-brand-navy inline-flex items-center gap-1"
+                >
+                  <span>Talk to an advisor about batch fit →</span>
+                </Link>
               </div>
             </div>
-          ))}
+          </div>
+
+          {/* Right Column: Profile Cards (7 cols) */}
+          <div className="lg:col-span-7 space-y-3">
+            {audiences.map((aud) => (
+              <div
+                key={aud.title}
+                className="p-4 rounded-xl bg-white border border-slate-200/80 hover:border-slate-300 transition-colors shadow-subtle flex items-start gap-3.5"
+              >
+                <div className="w-8 h-8 rounded-lg bg-blue-50/80 border border-blue-100 flex items-center justify-center flex-shrink-0 mt-0.5">
+                  {aud.icon}
+                </div>
+                <div>
+                  <h3 className="text-sm font-semibold text-slate-900 mb-0.5">
+                    {aud.title}
+                  </h3>
+                  <p className="text-xs text-slate-600 leading-relaxed">
+                    {aud.desc}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>

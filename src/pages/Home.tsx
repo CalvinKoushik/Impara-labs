@@ -27,122 +27,118 @@ import { TechKnotsLogo } from '../components/BrandLogos';
 export const Home: React.FC = () => {
   return (
     <div className="flex flex-col min-h-screen">
-      {/* 4.1 HERO SECTION */}
-      <section className="relative overflow-hidden bg-gradient-to-b from-brand-pale via-white to-white pt-10 pb-16 lg:pt-16 lg:pb-24 border-b border-brand-border">
-        {/* Subtle ambient lighting */}
-        <div className="absolute top-0 right-1/4 w-96 h-96 bg-blue-200/30 rounded-full blur-3xl pointer-events-none"></div>
-        <div className="absolute top-1/3 left-10 w-80 h-80 bg-brand-accent/15 rounded-full blur-3xl pointer-events-none"></div>
+      {/* HERO SECTION */}
+      <section className="relative overflow-hidden bg-white pt-10 pb-16 lg:pt-14 lg:pb-20 border-b border-slate-200/80">
+        {/* Subtle engineering grid backdrop */}
+        <div className="absolute inset-0 bg-grid-subtle opacity-40 pointer-events-none [mask-image:radial-gradient(ellipse_at_top,white_40%,transparent_80%)]"></div>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
             {/* Left Column: Headline, Copy, Highlights, CTAs (7 cols) */}
-            <div className="lg:col-span-7 space-y-6 text-left">
-              {/* Top Partner Badge */}
-              <div className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-white border border-brand-border shadow-sm text-xs font-bold text-brand-navy">
-                <span className="w-2 h-2 rounded-full bg-[#25D366] animate-pulse"></span>
+            <div className="lg:col-span-7 space-y-5 text-left">
+              {/* Top Status Pill */}
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-50 border border-slate-200 shadow-subtle text-xs font-semibold text-slate-700">
+                <span className="w-2 h-2 rounded-full bg-emerald-500"></span>
                 <span>Admissions Open • 3-Month Industry-Supported Programmes</span>
               </div>
 
               {/* Main Headline */}
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black text-brand-navy tracking-tight leading-[1.1]">
+              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 tracking-tight leading-[1.15]">
                 Learn Technology.{' '}
-                <span className="text-gradient block sm:inline">Build What Matters.</span>
+                <span className="text-brand-primary block sm:inline">Build What Matters.</span>
               </h1>
 
               {/* Description */}
-              <p className="text-base sm:text-lg text-brand-body leading-relaxed max-w-2xl font-normal">
-                “Turn your curiosity into real-world skills through industry-supported technology programmes, hands-on projects and guided capstone experiences.”
+              <p className="text-sm sm:text-base text-slate-600 leading-relaxed max-w-xl font-normal">
+                Turn your curiosity into real-world skills through industry-supported technology programmes, hands-on lab projects, and guided capstone experiences.
               </p>
 
               {/* Value Proposition Highlights Grid */}
-              <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 pt-2 text-xs font-semibold text-brand-navy">
-                <div className="flex items-center gap-2 p-2.5 rounded-xl bg-white border border-brand-border shadow-sm">
-                  <Calendar className="w-4 h-4 text-brand-primary flex-shrink-0" />
+              <div className="grid grid-cols-2 sm:grid-cols-3 gap-2.5 pt-1 text-xs font-medium text-slate-700">
+                <div className="flex items-center gap-2 p-2.5 rounded-lg bg-slate-50 border border-slate-200/80">
+                  <Calendar className="w-3.5 h-3.5 text-brand-primary flex-shrink-0" />
                   <span>3-Month Structured</span>
                 </div>
-                <div className="flex items-center gap-2 p-2.5 rounded-xl bg-white border border-brand-border shadow-sm">
-                  <Layers className="w-4 h-4 text-brand-primary flex-shrink-0" />
-                  <span>Hands-on Learning</span>
+                <div className="flex items-center gap-2 p-2.5 rounded-lg bg-slate-50 border border-slate-200/80">
+                  <Layers className="w-3.5 h-3.5 text-brand-primary flex-shrink-0" />
+                  <span>2 Mini + 1 Capstone</span>
                 </div>
-                <div className="flex items-center gap-2 p-2.5 rounded-xl bg-white border border-brand-border shadow-sm">
-                  <Award className="w-4 h-4 text-brand-primary flex-shrink-0" />
-                  <span>Capstone Projects</span>
+                <div className="flex items-center gap-2 p-2.5 rounded-lg bg-slate-50 border border-slate-200/80">
+                  <Award className="w-3.5 h-3.5 text-brand-primary flex-shrink-0" />
+                  <span>Recognized Certificate</span>
                 </div>
-                <div className="flex items-center gap-2 p-2.5 rounded-xl bg-white border border-brand-border shadow-sm">
-                  <Sparkles className="w-4 h-4 text-brand-primary flex-shrink-0" />
+                <div className="flex items-center gap-2 p-2.5 rounded-lg bg-slate-50 border border-slate-200/80">
+                  <Sparkles className="w-3.5 h-3.5 text-brand-primary flex-shrink-0" />
                   <span>Weekday & Weekend</span>
                 </div>
-                <div className="flex items-center gap-2 p-2.5 rounded-xl bg-white border border-brand-border shadow-sm">
-                  <Users className="w-4 h-4 text-brand-primary flex-shrink-0" />
-                  <span>Industry Mentors</span>
+                <div className="flex items-center gap-2 p-2.5 rounded-lg bg-slate-50 border border-slate-200/80">
+                  <Users className="w-3.5 h-3.5 text-brand-primary flex-shrink-0" />
+                  <span>1-on-1 Code Reviews</span>
                 </div>
-                <div className="flex items-center gap-2 p-2.5 rounded-xl bg-blue-50 border border-blue-200 shadow-sm text-brand-primary">
-                  <Compass className="w-4 h-4 flex-shrink-0" />
+                <div className="flex items-center gap-2 p-2.5 rounded-lg bg-blue-50/70 border border-blue-100 text-brand-primary font-semibold">
+                  <Compass className="w-3.5 h-3.5 flex-shrink-0" />
                   <span>Powered by TechKnots</span>
                 </div>
               </div>
 
               {/* Buttons & WhatsApp Action */}
-              <div className="pt-4 flex flex-wrap items-center gap-4">
+              <div className="pt-3 flex flex-wrap items-center gap-3">
                 <Link
                   to="/courses"
-                  className="px-7 py-3.5 rounded-2xl bg-brand-primary hover:bg-[#0756c4] text-white font-extrabold text-sm sm:text-base shadow-xl hover:shadow-2xl transition-all transform hover:-translate-y-0.5 flex items-center gap-2"
+                  className="px-5 py-2.5 rounded-lg bg-brand-primary hover:bg-brand-primary-hover text-white font-semibold text-sm shadow-sm hover:shadow transition-all flex items-center gap-1.5"
                 >
                   <span>Explore Our Courses</span>
-                  <ArrowRight className="w-4 h-4" />
+                  <ArrowRight className="w-3.5 h-3.5" />
                 </Link>
 
                 <WhatsAppButton
-                  size="lg"
+                  size="md"
                   label="Talk to Our Team"
-                  className="rounded-2xl"
+                  className="rounded-lg"
                 />
 
                 <a
                   href="/assets/impara-program-brochure.pdf"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 px-4 py-3 rounded-2xl border border-brand-border text-brand-navy hover:text-brand-primary hover:bg-white text-xs font-bold transition-colors"
+                  className="inline-flex items-center gap-1.5 px-3.5 py-2.5 rounded-lg border border-slate-200 text-slate-700 hover:text-brand-primary hover:bg-slate-50 text-xs font-semibold transition-colors"
                 >
-                  <Download className="w-4 h-4" />
+                  <Download className="w-3.5 h-3.5 text-slate-500" />
                   <span>Brochure (PDF)</span>
                 </a>
               </div>
 
               {/* Knowledge Partner Pill */}
-              <div className="pt-2 flex items-center gap-3 text-xs text-gray-500">
+              <div className="pt-2 flex items-center gap-3 text-xs text-slate-500">
                 <span>Knowledge & R&D Partner:</span>
-                <TechKnotsLogo className="h-7" />
+                <TechKnotsLogo className="h-6" />
               </div>
             </div>
 
             {/* Right Column: Visual Poster & Student Lab Showcase (5 cols) */}
             <div className="lg:col-span-5 relative">
               <div className="relative mx-auto max-w-md lg:max-w-none">
-                {/* Decorative glow backing */}
-                <div className="absolute -inset-1.5 bg-gradient-to-r from-brand-primary via-brand-accent to-brand-navy rounded-3xl blur-xl opacity-30"></div>
-
-                <div className="relative rounded-3xl overflow-hidden bg-white border border-brand-border shadow-2xl">
+                <div className="relative rounded-2xl overflow-hidden bg-white border border-slate-200 shadow-md">
                   {/* Poster Graphic Image */}
                   <img
                     src="/assets/program-poster.jpg"
                     alt="Impara Creative Labs 3-Month Industry Supported Program Poster"
-                    className="w-full h-auto object-cover max-h-[520px]"
+                    className="w-full h-auto object-cover max-h-[500px]"
                     loading="eager"
                   />
 
                   {/* Overlay Badge */}
-                  <div className="absolute bottom-4 left-4 right-4 p-4 rounded-2xl bg-brand-navy/90 backdrop-blur-md text-white border border-white/20 shadow-lg flex items-center justify-between">
+                  <div className="p-3.5 bg-slate-900/95 backdrop-blur-md text-white border-t border-slate-800 flex items-center justify-between">
                     <div>
-                      <p className="text-xs font-bold text-blue-200">Next Upcoming Cohort</p>
-                      <p className="text-sm font-extrabold text-white">Enrollment Interest Open</p>
+                      <p className="text-[11px] font-medium text-slate-400">Next Upcoming Cohort</p>
+                      <p className="text-xs font-bold text-white">Enrollment Interest Open</p>
                     </div>
                     <Link
                       to="/enroll"
-                      className="px-3.5 py-1.5 rounded-xl bg-brand-primary hover:bg-[#0756c4] text-xs font-bold text-white shadow-md transition-all flex items-center gap-1"
+                      className="px-3 py-1.5 rounded-md bg-brand-primary hover:bg-brand-primary-hover text-xs font-semibold text-white transition-colors flex items-center gap-1"
                     >
                       <span>Enquire</span>
-                      <ArrowRight className="w-3.5 h-3.5" />
+                      <ArrowRight className="w-3 h-3" />
                     </Link>
                   </div>
                 </div>
@@ -152,34 +148,34 @@ export const Home: React.FC = () => {
         </div>
       </section>
 
-      {/* 4.2 TRUST & CREDIBILITY (STATISTICS) */}
+      {/* TRUST & CREDIBILITY (STATISTICS) */}
       <TrustStats />
 
-      {/* 4.3 THREE FLAGSHIP PROGRAMMES */}
+      {/* THREE FLAGSHIP PROGRAMMES */}
       <section className="py-20 bg-white" id="programs">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-3xl mx-auto mb-16">
-            <span className="text-xs font-bold uppercase tracking-widest text-brand-primary">
+          <div className="text-center max-w-2xl mx-auto mb-14">
+            <span className="text-xs font-semibold uppercase tracking-wider text-brand-primary">
               Flagship Curricula
             </span>
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-brand-navy mt-2">
+            <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 mt-1 tracking-tight">
               Three Comprehensive Technology Pathways
             </h2>
-            <p className="text-base text-brand-body mt-3">
-              Designed from industry requirements, each 3-month programme combines hands-on labs, progressive assignments, and a real capstone portfolio project.
+            <p className="text-xs sm:text-sm text-slate-600 mt-2 leading-relaxed">
+              Designed directly from industry requirements, each 3-month programme combines hands-on labs, progressive assignments, and a real capstone portfolio project.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {courses.map((course, idx) => (
               <CourseCard key={course.id} course={course} featured={idx === 0} />
             ))}
           </div>
 
-          <div className="mt-12 text-center">
+          <div className="mt-10 text-center">
             <Link
               to="/courses"
-              className="inline-flex items-center gap-2 text-sm font-extrabold text-brand-primary hover:text-brand-navy underline underline-offset-4"
+              className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-semibold text-brand-primary hover:text-slate-900 transition-colors"
             >
               <span>Compare all curricula, syllabus details, and practical assignments →</span>
             </Link>
@@ -187,67 +183,74 @@ export const Home: React.FC = () => {
         </div>
       </section>
 
-      {/* 4.4 WHY CHOOSE IMPARA? (BENEFITS) */}
+      {/* WHY CHOOSE IMPARA? (BENEFITS) */}
       <BenefitsSection />
 
-      {/* 4.5 LEARNING JOURNEY TIMELINE */}
+      {/* LEARNING JOURNEY TIMELINE */}
       <LearningJourney />
 
-      {/* 4.6 POWERED BY TECHKNOTS */}
+      {/* POWERED BY TECHKNOTS */}
       <TechKnotsPartner />
 
       {/* FOUNDER & CEO LEADERSHIP SPOTLIGHT */}
       <FounderSection />
 
-      {/* 4.7 WHO CAN JOIN? */}
+      {/* WHO CAN JOIN? */}
       <AudienceSection />
 
-      {/* 4.8 PROJECT AND CAREER SUPPORT */}
+      {/* PROJECT AND CAREER SUPPORT */}
       <CareerSupportSection />
 
-      {/* 4.9 FREQUENTLY ASKED QUESTIONS */}
+      {/* FREQUENTLY ASKED QUESTIONS */}
       <FAQAccordion />
 
-      {/* 4.10 FINAL CONVERSION SECTION */}
-      <section className="py-20 bg-gradient-to-r from-brand-navy via-brand-primary to-brand-accent text-white relative overflow-hidden">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10 space-y-6">
-          <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-xs font-bold uppercase tracking-wider text-blue-200">
-            <Sparkles className="w-3.5 h-3.5" />
-            <span>Start Building Today</span>
-          </span>
+      {/* FINAL CONVERSION SECTION */}
+      <section className="py-16 bg-white border-t border-slate-200/80">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="bg-slate-900 rounded-2xl p-8 sm:p-12 lg:p-14 text-white text-center relative overflow-hidden shadow-xl">
+            <div className="absolute inset-0 bg-grid-subtle opacity-10 pointer-events-none"></div>
 
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-white tracking-tight">
-            Your Next Big Idea Starts Here.
-          </h2>
+            <div className="relative z-10 max-w-2xl mx-auto space-y-4">
+              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/10 border border-white/15 text-xs font-semibold uppercase tracking-wider text-slate-300">
+                <Sparkles className="w-3.5 h-3.5 text-blue-400" />
+                <span>Start Building Today</span>
+              </span>
 
-          <p className="text-base sm:text-lg text-blue-100 max-w-2xl mx-auto font-normal leading-relaxed">
-            “Choose your learning path, build practical skills and turn what you learn into something real.”
-          </p>
+              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white tracking-tight">
+                Your Next Big Idea Starts Here.
+              </h2>
 
-          <div className="pt-4 flex flex-wrap items-center justify-center gap-4">
-            <Link
-              to="/courses"
-              className="px-7 py-3.5 rounded-xl bg-white text-brand-navy hover:bg-blue-50 font-bold text-sm sm:text-base shadow-lg transition-all"
-            >
-              Explore Courses
-            </Link>
-            <Link
-              to="/enroll"
-              className="px-7 py-3.5 rounded-xl bg-brand-dark hover:bg-black text-white font-bold text-sm sm:text-base shadow-lg transition-all flex items-center gap-2"
-            >
-              <span>Enquire Now</span>
-              <ArrowRight className="w-4 h-4" />
-            </Link>
-            <WhatsAppButton
-              size="lg"
-              variant="white"
-              label="Chat on WhatsApp"
-            />
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed font-normal">
+                Choose your learning path, build practical engineering skills, and graduate with 3 tangible projects to prove your capability.
+              </p>
+
+              <div className="pt-3 flex flex-wrap items-center justify-center gap-3">
+                <Link
+                  to="/courses"
+                  className="px-5 py-2.5 rounded-lg bg-white text-slate-900 hover:bg-slate-100 font-semibold text-sm transition-colors shadow-sm"
+                >
+                  Explore Courses
+                </Link>
+                <Link
+                  to="/enroll"
+                  className="px-5 py-2.5 rounded-lg bg-brand-primary hover:bg-brand-primary-hover text-white font-semibold text-sm transition-colors shadow-sm flex items-center gap-1.5"
+                >
+                  <span>Enquire Now</span>
+                  <ArrowRight className="w-3.5 h-3.5" />
+                </Link>
+                <WhatsAppButton
+                  size="md"
+                  variant="white"
+                  label="Chat on WhatsApp"
+                  className="rounded-lg"
+                />
+              </div>
+
+              <p className="text-xs text-slate-400 pt-2">
+                Questions before enrolling? Speak with our advisors at {siteConfig.contact.phoneFormatted}
+              </p>
+            </div>
           </div>
-
-          <p className="text-xs text-blue-200/80 pt-4">
-            Questions before enrolling? Call our advisors at {siteConfig.contact.phoneFormatted}
-          </p>
         </div>
       </section>
     </div>
