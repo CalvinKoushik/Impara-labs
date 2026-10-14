@@ -32,7 +32,7 @@ export const AudienceSection: React.FC = () => {
   ];
 
   return (
-    <section className="py-20 bg-slate-50/70 border-t border-slate-200/80">
+    <section className="py-20 bg-gradient-to-b from-white via-sky-50/50 to-white border-t border-sky-100">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
           {/* Left Column: Heading & Prerequisites Reassurance (5 cols) */}

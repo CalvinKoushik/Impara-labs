@@ -9,7 +9,7 @@
     scroll-behavior: smooth;
     font-family: 'Plus Jakarta Sans', Inter, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     color: #334155;
-    background-color: #FFFFFF;
+    background-color: #F0F6FD;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
@@ -18,6 +18,8 @@
     min-height: 100vh;
     overflow-x: hidden;
     line-height: 1.6;
+    background: linear-gradient(180deg, #F0F6FD 0%, #FAFCFF 20%, #FFFFFF 50%, #F0F7FD 80%, #E8F2FC 100%);
+    background-attachment: fixed;
   }
 
   h1, h2, h3, h4, h5, h6 {
@@ -53,10 +55,19 @@
     -webkit-text-fill-color: transparent;
   }
 
-  /* Clean subtle grid background for hero & technical sections */
+  /* Clean subtle grid background for hero & technical sections with soft sky-blue tint */
   .bg-grid-subtle {
-    background-image: radial-gradient(rgba(148, 163, 184, 0.22) 1px, transparent 1px);
+    background-image: radial-gradient(rgba(8, 102, 232, 0.12) 1px, transparent 1px);
     background-size: 24px 24px;
+  }
+
+  /* Sky-blue blended surfaces */
+  .bg-sky-blend {
+    background: linear-gradient(180deg, #F0F6FD 0%, #FAFCFF 35%, #FFFFFF 65%, #F0F7FD 100%);
+  }
+
+  .bg-sky-surface {
+    background-color: #F0F6FD;
   }
 
   /* Hairline borders */

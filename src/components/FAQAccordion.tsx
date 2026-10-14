@@ -61,7 +61,7 @@ export const FAQAccordion: React.FC<FAQAccordionProps> = ({
   };
 
   return (
-    <section className="py-20 bg-white border-t border-slate-200/80">
+    <section className="py-20 bg-gradient-to-b from-white via-sky-50/50 to-white border-t border-sky-100">
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
           <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded text-xs font-semibold uppercase tracking-wider bg-blue-50 text-brand-primary border border-blue-100 mb-2.5">
@@ -85,7 +85,7 @@ export const FAQAccordion: React.FC<FAQAccordionProps> = ({
             return (
               <div
                 key={faq.question}
-                className="border border-slate-200/90 rounded-xl overflow-hidden transition-all duration-150"
+                className="border border-sky-100 bg-white rounded-xl overflow-hidden shadow-subtle hover:border-sky-200 transition-all duration-150"
               >
                 <button
                   type="button"

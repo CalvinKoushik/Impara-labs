@@ -39,9 +39,9 @@ export const CourseDetail: React.FC<CourseDetailProps> = ({ customSlug }) => {
   const brochureLink = course.brochureUrl || '/assets/impara-program-brochure.pdf';
 
   return (
-    <div className="flex flex-col min-h-screen bg-white">
+    <div className="flex flex-col min-h-screen bg-gradient-to-b from-sky-50/70 via-white to-sky-50/50">
       {/* Hero Section */}
-      <section className="relative overflow-hidden bg-white py-12 sm:py-16 border-b border-slate-200/80">
+      <section className="relative overflow-hidden bg-gradient-to-b from-sky-100/70 via-sky-50/50 to-white py-12 sm:py-16 border-b border-sky-100">
         <div className="absolute inset-0 bg-grid-subtle opacity-30 pointer-events-none [mask-image:radial-gradient(ellipse_at_top,white_40%,transparent_80%)]"></div>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -164,7 +164,7 @@ export const CourseDetail: React.FC<CourseDetailProps> = ({ customSlug }) => {
       </section>
 
       {/* 12-Week Structured Roadmap (Page 4 from brochure) */}
-      <section className="py-16 sm:py-20 bg-white" id="curriculum">
+      <section className="py-16 sm:py-20 bg-gradient-to-b from-white via-sky-50/40 to-white" id="curriculum">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-2xl mx-auto mb-14">
             <span className="text-xs font-semibold uppercase tracking-wider text-brand-primary">
@@ -225,7 +225,7 @@ export const CourseDetail: React.FC<CourseDetailProps> = ({ customSlug }) => {
       </section>
 
       {/* Tools & Technologies */}
-      <section className="py-16 bg-slate-50/60 border-y border-slate-200/80">
+      <section className="py-16 bg-gradient-to-b from-white via-sky-50/50 to-white border-y border-sky-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-2xl mx-auto mb-12">
             <span className="text-xs font-semibold uppercase tracking-wider text-brand-primary">
@@ -436,7 +436,7 @@ export const CourseDetail: React.FC<CourseDetailProps> = ({ customSlug }) => {
       )}
 
       {/* Career Opportunities & Beyond the Classroom (Page 7 from brochure) */}
-      <section className="py-16 sm:py-20 bg-white">
+      <section className="py-16 sm:py-20 bg-gradient-to-b from-white via-sky-50/40 to-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
             {/* Left 6 cols: Career Opportunities */}
@@ -626,9 +626,9 @@ export const CourseDetail: React.FC<CourseDetailProps> = ({ customSlug }) => {
       />
 
       {/* Bottom Conversion Section */}
-      <section className="py-16 bg-white border-t border-slate-200/80">
+      <section className="py-16 bg-gradient-to-b from-sky-50/50 to-sky-100/70 border-t border-sky-100">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-slate-900 rounded-2xl p-8 sm:p-12 text-white text-center space-y-4 shadow-xl">
+          <div className="bg-gradient-to-br from-[#0866E8] via-[#0752BA] to-[#0A1E3C] rounded-2xl p-8 sm:p-12 text-white text-center space-y-4 shadow-xl border border-blue-400/30">
             <h2 className="text-2xl sm:text-3xl font-bold tracking-tight">
               Ready to Build Real Projects in {course.title}?
             </h2>

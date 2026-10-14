@@ -50,13 +50,13 @@ export const About: React.FC = () => {
   ];
 
   return (
-    <div className="flex flex-col min-h-screen bg-white">
+    <div className="flex flex-col min-h-screen bg-gradient-to-b from-sky-50/70 via-white to-sky-50/50">
       {/* Hero Header */}
-      <section className="relative overflow-hidden bg-white py-14 sm:py-20 border-b border-slate-200/80">
+      <section className="relative overflow-hidden bg-gradient-to-b from-sky-100/70 via-sky-50/50 to-white py-14 sm:py-20 border-b border-sky-100">
         <div className="absolute inset-0 bg-grid-subtle opacity-30 pointer-events-none [mask-image:radial-gradient(ellipse_at_top,white_40%,transparent_80%)]"></div>
 
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-4 relative z-10">
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-50 border border-slate-200 shadow-subtle text-xs font-semibold text-slate-700">
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/80 border border-sky-100 shadow-subtle text-xs font-semibold text-slate-700">
             <Sparkles className="w-3.5 h-3.5 text-brand-primary" />
             <span>Our Origin & Philosophy</span>
           </div>
@@ -73,11 +73,11 @@ export const About: React.FC = () => {
       </section>
 
       {/* Mission & Vision */}
-      <section className="py-16 sm:py-20 bg-white">
+      <section className="py-16 sm:py-20 bg-gradient-to-b from-white via-sky-50/40 to-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {/* Mission */}
-            <div className="bg-slate-50/80 rounded-xl p-7 sm:p-9 border border-slate-200/80 shadow-subtle flex flex-col justify-between">
+            <div className="bg-white rounded-xl p-7 sm:p-9 border border-sky-100 shadow-subtle flex flex-col justify-between">
               <div>
                 <div className="w-10 h-10 rounded-lg bg-blue-50 border border-blue-100 flex items-center justify-center text-brand-primary mb-4">
                   <Target className="w-5 h-5" />
@@ -88,7 +88,7 @@ export const About: React.FC = () => {
                 <h2 className="text-xl sm:text-2xl font-bold text-slate-900 mt-1 mb-3">
                   Transforming Ideas into Working Solutions
                 </h2>
-                <blockquote className="text-xs sm:text-sm text-slate-700 leading-relaxed italic bg-white p-4 rounded-lg border border-slate-200/80 shadow-subtle">
+                <blockquote className="text-xs sm:text-sm text-slate-700 leading-relaxed italic bg-sky-50/60 p-4 rounded-lg border border-sky-100 shadow-subtle">
                   “To make modern technology education more practical, creative and accessible, empowering learners to transform ideas into working solutions.”
                 </blockquote>
               </div>
@@ -98,22 +98,22 @@ export const About: React.FC = () => {
             </div>
 
             {/* Vision */}
-            <div className="bg-slate-900 text-white rounded-xl p-7 sm:p-9 border border-slate-800 shadow-md flex flex-col justify-between">
+            <div className="bg-gradient-to-br from-[#0866E8] via-[#0752BA] to-[#0A1E3C] text-white rounded-xl p-7 sm:p-9 border border-blue-400/30 shadow-md flex flex-col justify-between">
               <div>
-                <div className="w-10 h-10 rounded-lg bg-white/10 border border-white/15 flex items-center justify-center text-blue-300 mb-4">
+                <div className="w-10 h-10 rounded-lg bg-white/10 border border-white/15 flex items-center justify-center text-sky-200 mb-4">
                   <Compass className="w-5 h-5" />
                 </div>
-                <span className="text-xs font-semibold uppercase tracking-wider text-slate-400">
+                <span className="text-xs font-semibold uppercase tracking-wider text-sky-200">
                   Our Vision
                 </span>
                 <h2 className="text-xl sm:text-2xl font-bold text-white mt-1 mb-3">
                   A Destination for Real Project Excellence
                 </h2>
-                <blockquote className="text-xs sm:text-sm text-slate-300 leading-relaxed italic bg-white/5 p-4 rounded-lg border border-white/10">
+                <blockquote className="text-xs sm:text-sm text-blue-100 leading-relaxed italic bg-white/10 p-4 rounded-lg border border-white/15">
                   “To become a trusted destination for project-driven technology education, innovation and industry-relevant skill development.”
                 </blockquote>
               </div>
-              <p className="text-xs text-slate-400 mt-5 leading-relaxed">
+              <p className="text-xs text-blue-100/80 mt-5 leading-relaxed">
                 Nurturing a new generation of inventors, hardware engineers, and software architects equipped with practical capabilities.
               </p>
             </div>
@@ -122,7 +122,7 @@ export const About: React.FC = () => {
       </section>
 
       {/* Why Impara Exists: Theory vs Reality */}
-      <section className="py-16 bg-slate-50/60 border-y border-slate-200/80">
+      <section className="py-16 bg-gradient-to-b from-white via-sky-50/50 to-white border-y border-sky-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-2xl mx-auto mb-12">
             <span className="text-xs font-semibold uppercase tracking-wider text-brand-primary">
@@ -213,7 +213,7 @@ export const About: React.FC = () => {
       <FounderSection />
 
       {/* CTA */}
-      <section className="py-16 bg-slate-50 border-t border-slate-200/80 text-center">
+      <section className="py-16 bg-gradient-to-b from-sky-50/50 to-sky-100/70 border-t border-sky-100 text-center">
         <div className="max-w-2xl mx-auto px-4 space-y-3">
           <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight">
             Start Your Journey with Impara Today

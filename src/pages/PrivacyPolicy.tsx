@@ -4,7 +4,7 @@ import { siteConfig } from '../config/site';
 
 export const PrivacyPolicy: React.FC = () => {
   return (
-    <div className="flex flex-col min-h-screen bg-white py-14 sm:py-18">
+    <div className="flex flex-col min-h-screen bg-gradient-to-b from-sky-50/70 via-white to-sky-50/50 py-14 sm:py-18">
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="mb-8 text-center">
           <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded text-xs font-semibold uppercase tracking-wider bg-blue-50 text-brand-primary border border-blue-100 mb-2.5">
@@ -20,7 +20,7 @@ export const PrivacyPolicy: React.FC = () => {
         </div>
 
         {/* Notice Banner */}
-        <div className="p-4 rounded-xl bg-slate-50 border border-slate-200/80 flex items-start gap-3 mb-8 text-xs text-slate-600 leading-relaxed">
+        <div className="p-4 rounded-xl bg-white/90 border border-sky-100 shadow-subtle flex items-start gap-3 mb-8 text-xs text-slate-600 leading-relaxed">
           <Info className="w-4 h-4 text-brand-primary flex-shrink-0 mt-0.5" />
           <p>
             This privacy policy outlines how Impara Creative Labs collects, uses, and safeguards the information you provide when using our website and submitting programme enquiries. This policy is a template subject to final legal review prior to commercial operations.

@@ -37,7 +37,7 @@ export const BenefitsSection: React.FC = () => {
   ];
 
   return (
-    <section className="py-20 bg-white">
+    <section className="py-20 bg-gradient-to-b from-white via-sky-50/50 to-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
           {/* Left Sticky Editorial Column (5 cols) */}
@@ -55,7 +55,7 @@ export const BenefitsSection: React.FC = () => {
               Traditional education stops at textbook theory and chalkboards. Impara bridges the gap between academic concepts and real engineering execution.
             </p>
 
-            <div className="p-5 rounded-xl bg-slate-50 border border-slate-200/80 space-y-3">
+            <div className="p-5 rounded-xl bg-white/80 border border-sky-100 shadow-subtle space-y-3">
               <p className="text-xs font-semibold text-slate-800 uppercase tracking-wider">
                 The Core Standard:
               </p>
@@ -90,7 +90,7 @@ export const BenefitsSection: React.FC = () => {
             {benefits.map((benefit, i) => (
               <div
                 key={benefit.title}
-                className="p-5 rounded-xl bg-white border border-slate-200/80 hover:border-slate-300 hover:bg-slate-50/50 transition-all duration-150 flex flex-col justify-between"
+                className="p-5 rounded-xl bg-white border border-sky-100 hover:border-sky-200 hover:shadow-card transition-all duration-150 flex flex-col justify-between"
               >
                 <div>
                   <div className="flex items-center justify-between mb-3">

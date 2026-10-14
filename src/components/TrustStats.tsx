@@ -20,9 +20,9 @@ export const TrustStats: React.FC = () => {
   };
 
   return (
-    <section className="py-14 sm:py-16 bg-slate-50/70 border-y border-slate-200/80">
+    <section className="py-14 sm:py-16 bg-gradient-to-r from-sky-50/80 via-white to-sky-50/80 border-y border-sky-100">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 pb-6 border-b border-slate-200/60 gap-4">
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 pb-6 border-b border-sky-100 gap-4">
           <div>
             <span className="text-xs font-semibold uppercase tracking-wider text-brand-primary">
               Proven Foundation
@@ -37,7 +37,7 @@ export const TrustStats: React.FC = () => {
         </div>
 
         {/* Structured Metric Grid with Clean Hairline Dividers */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-0 lg:divide-x lg:divide-slate-200">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-0 lg:divide-x lg:divide-sky-100">
           {siteConfig.stats.map((stat, idx) => (
             <div
               key={stat.label}

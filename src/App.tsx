@@ -19,7 +19,7 @@ function App() {
   return (
     <BrowserRouter>
       <ScrollToTop />
-      <div className="flex flex-col min-h-screen text-brand-body bg-white selection:bg-brand-primary selection:text-white">
+      <div className="flex flex-col min-h-screen text-brand-body bg-gradient-to-b from-[#F0F6FD] via-[#FAFCFF] to-[#EFF6FD] selection:bg-brand-primary selection:text-white">
         {/* Reusable Header */}
         <Header />
 

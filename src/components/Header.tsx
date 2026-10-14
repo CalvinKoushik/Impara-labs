@@ -26,12 +26,12 @@ export const Header: React.FC = () => {
     <header
       className={`sticky top-0 z-50 w-full transition-all duration-200 ${
         scrolled
-          ? 'bg-white/95 backdrop-blur-md shadow-sm border-b border-slate-200/80'
-          : 'bg-white border-b border-slate-100'
+          ? 'bg-white/90 backdrop-blur-md shadow-subtle border-b border-sky-100'
+          : 'bg-white/75 backdrop-blur-sm border-b border-sky-100/60'
       }`}
     >
       {/* Top micro-bar showing partnership notice */}
-      <div className="bg-slate-50 border-b border-slate-200/70 py-1.5 px-4 text-xs font-medium text-slate-600">
+      <div className="bg-sky-50/90 border-b border-sky-100/80 py-1.5 px-4 text-xs font-medium text-slate-700">
         <div className="max-w-7xl mx-auto flex items-center justify-between">
           <div className="flex items-center gap-2">
             <span className="inline-flex items-center gap-1.5 text-xs text-slate-800 font-medium">

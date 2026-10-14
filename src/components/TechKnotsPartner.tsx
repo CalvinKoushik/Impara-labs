@@ -28,9 +28,9 @@ export const TechKnotsPartner: React.FC = () => {
   ];
 
   return (
-    <section className="py-20 bg-white border-t border-slate-200/80">
+    <section className="py-20 bg-gradient-to-b from-white via-sky-50/50 to-white border-t border-sky-100">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="bg-slate-900 border border-slate-800 rounded-2xl p-8 sm:p-12 lg:p-14 text-white shadow-xl relative overflow-hidden">
+        <div className="bg-gradient-to-br from-[#0B2240] via-[#091B33] to-[#061324] border border-sky-500/25 rounded-2xl p-8 sm:p-12 lg:p-14 text-white shadow-xl relative overflow-hidden">
           {/* Subtle technical background grid */}
           <div className="absolute inset-0 bg-grid-subtle opacity-10 pointer-events-none"></div>
 

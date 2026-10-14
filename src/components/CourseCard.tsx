@@ -28,8 +28,8 @@ export const CourseCard: React.FC<CourseCardProps> = ({ course, featured = false
     <div
       className={`group relative bg-white rounded-xl border transition-all duration-200 flex flex-col justify-between overflow-hidden ${
         featured
-          ? 'border-brand-primary/60 shadow-sm hover:shadow-md'
-          : 'border-slate-200/90 shadow-sm hover:shadow-md hover:border-slate-300'
+          ? 'border-brand-primary/60 shadow-card hover:shadow-card-hover'
+          : 'border-sky-100 shadow-card hover:shadow-card-hover hover:border-sky-200'
       }`}
     >
       {/* Top Header Content */}
@@ -58,7 +58,7 @@ export const CourseCard: React.FC<CourseCardProps> = ({ course, featured = false
         </p>
 
         {/* Project Deliverable Spotlight */}
-        <div className="p-3 rounded-lg bg-slate-50 border border-slate-200/80 mb-5">
+        <div className="p-3 rounded-lg bg-sky-50/60 border border-sky-100 mb-5">
           <div className="flex items-center justify-between text-xs mb-1">
             <span className="font-semibold text-slate-700 flex items-center gap-1.5">
               <FolderGit2 className="w-3.5 h-3.5 text-brand-primary" />

@@ -4,7 +4,7 @@ import { Home } from 'lucide-react';
 
 export const NotFound: React.FC = () => {
   return (
-    <div className="min-h-[70vh] flex items-center justify-center bg-white px-4 py-16">
+    <div className="min-h-[70vh] flex items-center justify-center bg-gradient-to-b from-sky-50/70 via-white to-sky-50/50 px-4 py-16">
       <div className="max-w-md w-full text-center space-y-5">
         <div className="w-16 h-16 rounded-xl bg-blue-50 text-brand-primary font-bold text-2xl flex items-center justify-center mx-auto border border-blue-100">
           404

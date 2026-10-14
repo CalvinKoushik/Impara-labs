@@ -12,13 +12,13 @@ import { ImparaLogo, TechKnotsLogo } from '../components/BrandLogos';
 
 export const Contact: React.FC = () => {
   return (
-    <div className="flex flex-col min-h-screen bg-white">
+    <div className="flex flex-col min-h-screen bg-gradient-to-b from-sky-50/70 via-white to-sky-50/50">
       {/* Header */}
-      <section className="relative overflow-hidden bg-white py-14 sm:py-18 border-b border-slate-200/80">
+      <section className="relative overflow-hidden bg-gradient-to-b from-sky-100/70 via-sky-50/50 to-white py-14 sm:py-18 border-b border-sky-100">
         <div className="absolute inset-0 bg-grid-subtle opacity-30 pointer-events-none [mask-image:radial-gradient(ellipse_at_top,white_40%,transparent_80%)]"></div>
 
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-3 relative z-10">
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-50 border border-slate-200 shadow-subtle text-xs font-semibold text-slate-700">
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/80 border border-sky-100 shadow-subtle text-xs font-semibold text-slate-700">
             <Mail className="w-3.5 h-3.5 text-brand-primary" />
             <span>Connect with Us</span>
           </div>
@@ -34,11 +34,11 @@ export const Contact: React.FC = () => {
       </section>
 
       {/* Main Contact Grid */}
-      <section className="py-16 sm:py-20 bg-slate-50/50">
+      <section className="py-16 sm:py-20 bg-gradient-to-b from-white via-sky-50/40 to-sky-50/60">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
             {/* Phone Card */}
-            <div className="bg-white rounded-xl p-6 border border-slate-200/80 shadow-subtle hover:border-slate-300 transition-all flex flex-col justify-between">
+            <div className="bg-white rounded-xl p-6 border border-sky-100 shadow-subtle hover:border-sky-200 hover:shadow-card transition-all flex flex-col justify-between">
               <div>
                 <div className="w-9 h-9 rounded-lg bg-blue-50/80 border border-blue-100 text-brand-primary flex items-center justify-center mb-4">
                   <Phone className="w-4 h-4" />

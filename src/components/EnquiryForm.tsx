@@ -263,7 +263,7 @@ export const EnquiryForm: React.FC = () => {
   }
 
   return (
-    <div className="bg-white rounded-xl p-6 sm:p-9 border border-slate-200/90 shadow-sm max-w-3xl mx-auto">
+    <div className="bg-white/95 rounded-2xl p-6 sm:p-9 border border-sky-100 shadow-card max-w-3xl mx-auto backdrop-blur-sm">
       <div className="border-b border-slate-100 pb-5 mb-6">
         <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded text-xs font-semibold uppercase tracking-wider bg-blue-50 text-brand-primary border border-blue-100 mb-2">
           <Send className="w-3 h-3" />

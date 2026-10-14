@@ -36,7 +36,7 @@ export const LearningJourney: React.FC = () => {
   ];
 
   return (
-    <section className="py-20 bg-slate-50/60 border-t border-slate-200/80">
+    <section className="py-20 bg-gradient-to-b from-white via-sky-50/50 to-white border-t border-sky-100">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-2xl mx-auto mb-14">
           <span className="text-xs font-semibold uppercase tracking-wider text-brand-primary">
@@ -53,12 +53,12 @@ export const LearningJourney: React.FC = () => {
         {/* Desktop Horizontal Milestone Flow */}
         <div className="hidden lg:grid lg:grid-cols-5 gap-4 relative">
           {/* Connector Line behind steps */}
-          <div className="absolute top-7 left-12 right-12 h-px bg-slate-200 z-0"></div>
+          <div className="absolute top-7 left-12 right-12 h-px bg-sky-200 z-0"></div>
 
           {steps.map((step) => (
             <div
               key={step.num}
-              className="relative z-10 bg-white rounded-xl p-5 border border-slate-200/80 hover:border-slate-300 shadow-sm hover:shadow-md transition-all duration-150 flex flex-col items-center text-center group"
+              className="relative z-10 bg-white rounded-xl p-5 border border-sky-100 hover:border-sky-200 shadow-subtle hover:shadow-card transition-all duration-150 flex flex-col items-center text-center group"
             >
               <div className="w-9 h-9 rounded-lg bg-blue-50/80 border border-blue-100 flex items-center justify-center mb-3 transition-colors group-hover:bg-brand-primary group-hover:text-white">
                 {step.icon}

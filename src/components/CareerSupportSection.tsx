@@ -42,7 +42,7 @@ export const CareerSupportSection: React.FC = () => {
   ];
 
   return (
-    <section className="py-20 bg-white border-t border-slate-200/80">
+    <section className="py-20 bg-gradient-to-b from-white via-sky-50/50 to-white border-t border-sky-100">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-2xl mx-auto mb-14">
           <span className="text-xs font-semibold uppercase tracking-wider text-brand-primary">
@@ -60,7 +60,7 @@ export const CareerSupportSection: React.FC = () => {
           {supports.map((item) => (
             <div
               key={item.title}
-              className="bg-white rounded-xl p-5 border border-slate-200/80 hover:border-slate-300 shadow-sm hover:shadow-md transition-all duration-150 flex flex-col justify-between"
+              className="bg-white rounded-xl p-5 border border-sky-100 hover:border-sky-200 shadow-subtle hover:shadow-card transition-all duration-150 flex flex-col justify-between"
             >
               <div>
                 <div className="flex items-center justify-between mb-3">

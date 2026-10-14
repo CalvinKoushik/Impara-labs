@@ -6,9 +6,9 @@ export const FounderSection: React.FC = () => {
   const { founder } = siteConfig;
 
   return (
-    <section className="py-20 bg-white border-t border-slate-200/80">
+    <section className="py-20 bg-gradient-to-b from-white via-sky-50/50 to-white border-t border-sky-100">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="bg-slate-50/70 rounded-2xl p-8 sm:p-10 lg:p-12 border border-slate-200/80">
+        <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-8 sm:p-10 lg:p-12 border border-sky-100 shadow-subtle">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
             {/* Left Bio & Portrait Card (5 cols) */}
             <div className="lg:col-span-5 flex flex-col items-center sm:items-start text-center sm:text-left">
