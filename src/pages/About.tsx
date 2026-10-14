@@ -98,22 +98,22 @@ export const About: React.FC = () => {
             </div>
 
             {/* Vision */}
-            <div className="bg-gradient-to-br from-[#0866E8] via-[#0752BA] to-[#0A1E3C] text-white rounded-xl p-7 sm:p-9 border border-blue-400/30 shadow-md flex flex-col justify-between">
+            <div className="bg-white rounded-xl p-7 sm:p-9 border border-sky-100 shadow-subtle flex flex-col justify-between">
               <div>
-                <div className="w-10 h-10 rounded-lg bg-white/10 border border-white/15 flex items-center justify-center text-sky-200 mb-4">
+                <div className="w-10 h-10 rounded-lg bg-blue-50 border border-blue-100 flex items-center justify-center text-brand-primary mb-4">
                   <Compass className="w-5 h-5" />
                 </div>
-                <span className="text-xs font-semibold uppercase tracking-wider text-sky-200">
+                <span className="text-xs font-semibold uppercase tracking-wider text-brand-primary">
                   Our Vision
                 </span>
-                <h2 className="text-xl sm:text-2xl font-bold text-white mt-1 mb-3">
+                <h2 className="text-xl sm:text-2xl font-bold text-slate-900 mt-1 mb-3">
                   A Destination for Real Project Excellence
                 </h2>
-                <blockquote className="text-xs sm:text-sm text-blue-100 leading-relaxed italic bg-white/10 p-4 rounded-lg border border-white/15">
+                <blockquote className="text-xs sm:text-sm text-slate-700 leading-relaxed italic bg-sky-50/60 p-4 rounded-lg border border-sky-100 shadow-subtle">
                   “To become a trusted destination for project-driven technology education, innovation and industry-relevant skill development.”
                 </blockquote>
               </div>
-              <p className="text-xs text-blue-100/80 mt-5 leading-relaxed">
+              <p className="text-xs text-slate-500 mt-5 leading-relaxed">
                 Nurturing a new generation of inventors, hardware engineers, and software architects equipped with practical capabilities.
               </p>
             </div>
