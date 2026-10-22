@@ -52,6 +52,7 @@ export const WhatsAppButton: React.FC<WhatsAppButtonProps> = ({
       href={waUrl}
       target="_blank"
       rel="noopener noreferrer"
+      onClick={() => window.fbq?.('track', 'Contact')}
       aria-label={`${label} (${siteConfig.contact.phoneFormatted})`}
       className={`inline-flex items-center justify-center rounded-lg cursor-pointer select-none ${sizeClasses[size]} ${variantClasses[variant]} ${className}`}
     >
@@ -95,6 +96,7 @@ export const FloatingWhatsApp: React.FC = () => {
             href={waUrl}
             target="_blank"
             rel="noopener noreferrer"
+            onClick={() => window.fbq?.('track', 'Contact')}
             className="flex items-center justify-center gap-1.5 w-full py-2 bg-[#128C7E] hover:bg-[#075E54] text-white rounded-lg text-xs font-semibold transition-colors shadow-sm"
           >
             <MessageCircle className="w-3.5 h-3.5 fill-current" />

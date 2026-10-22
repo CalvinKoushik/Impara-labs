@@ -1,4 +1,5 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { useEffect, useRef } from 'react';
+import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
 import { Header } from './components/Header';
 import { Footer } from './components/Footer';
 import { FloatingWhatsApp } from './components/WhatsAppButton';
@@ -15,10 +16,26 @@ import { PrivacyPolicy } from './pages/PrivacyPolicy';
 import { Terms } from './pages/Terms';
 import { NotFound } from './pages/NotFound';
 
+function PageViewTracker() {
+  const location = useLocation();
+  const first = useRef(true);
+
+  useEffect(() => {
+    if (first.current) {
+      first.current = false;
+      return;
+    }
+    window.fbq?.('track', 'PageView');
+  }, [location.pathname]);
+
+  return null;
+}
+
 function App() {
   return (
     <BrowserRouter>
       <ScrollToTop />
+      <PageViewTracker />
       <div className="flex flex-col min-h-screen text-brand-body bg-gradient-to-b from-[#F0F6FD] via-[#FAFCFF] to-[#EFF6FD] selection:bg-brand-primary selection:text-white">
         {/* Reusable Header */}
         <Header />

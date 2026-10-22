@@ -50,7 +50,7 @@ export const siteConfig: SiteConfig = {
     phone: "+919843286522",
     phoneFormatted: "+91 98432 86522",
     email: "imparacreativelabs@gmail.com",
-    websiteUrl: "https://www.imparacreativelabs.com",
+    websiteUrl: "https://www.imparalabs.com",
     whatsappUrl: "https://wa.me/919843286522?text=share%20me%20more%20details%20to%20enroll",
     whatsappDefaultText: "share me more details to enroll",
     location: "Chennai, Tamil Nadu, India",

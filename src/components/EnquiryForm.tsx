@@ -211,6 +211,11 @@ export const EnquiryForm: React.FC = () => {
         throw new Error(errorMsg);
       }
 
+      // Meta Pixel Lead tracking
+      window.fbq?.('track', 'Lead', {
+        content_name: formData.preferredCourse,
+      });
+
       setIsSuccess(true);
     } catch (err: unknown) {
       const error = err as Error;

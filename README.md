@@ -9,7 +9,7 @@
 
 This is the production-ready web application for **Impara Creative Labs**, an industry-backed technology education brand powered by **TechKnots**. The platform is engineered to showcase 3-month industry-supported career programmes, collect validated student enrolment interest, and deliver a clean, fast, and mobile-optimized user experience.
 
-- **Official Website:** [https://www.imparacreativelabs.com](https://www.imparacreativelabs.com)
+- **Official Website:** [https://www.imparalabs.com](https://www.imparalabs.com)
 - **Primary Contact:** +91 91767 47268
 - **Email:** imparacreativelabs@gmail.com
 - **Knowledge Partner:** TechKnots (*"One knot at a time"*)
@@ -189,9 +189,9 @@ All enquiries are stored in a real Google Sheet and simultaneously emailed to `i
 
 ## 🌐 Custom Domain Setup
 
-To point `www.imparacreativelabs.com` to Netlify:
+To point `www.imparalabs.com` to Netlify:
 1. In Netlify Dashboard, navigate to **Site configuration** → **Domain management**.
-2. Click **Add custom domain** and enter `www.imparacreativelabs.com`.
+2. Click **Add custom domain** and enter `www.imparalabs.com`.
 3. In your DNS provider (e.g. GoDaddy, Cloudflare, Namecheap):
    - Add a `CNAME` record for `www` pointing to `<your-site-name>.netlify.app`.
    - Add an `A` record for the apex domain pointing to Netlify's load balancer IP `75.2.60.5`.
