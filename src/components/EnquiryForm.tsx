@@ -170,6 +170,19 @@ export const EnquiryForm: React.FC = () => {
     setIsSubmitting(true);
 
     try {
+      // Generate unique event ID for Meta deduplication (Pixel + Conversions API)
+      const eventId =
+        typeof crypto !== 'undefined' && typeof crypto.randomUUID === 'function'
+          ? crypto.randomUUID()
+          : `lead_${Date.now()}_${Math.random().toString(36).substring(2, 9)}`;
+
+      // Helper to extract Meta browser cookies if available
+      const getCookie = (name: string) => {
+        if (typeof document === 'undefined') return undefined;
+        const match = document.cookie.match(new RegExp('(^|;\\s*)(' + name + ')=([^;]*)'));
+        return match ? decodeURIComponent(match[3]) : undefined;
+      };
+
       const payload = {
         fullName: formData.fullName.trim(),
         mobileNumber: formData.mobileNumber.trim(),
@@ -185,6 +198,9 @@ export const EnquiryForm: React.FC = () => {
         contactConsent: formData.contactConsent,
         privacyConsent: formData.privacyConsent,
         botField: formData.botField,
+        eventId,
+        fbp: getCookie('_fbp'),
+        fbc: getCookie('_fbc'),
       };
 
       const endpoint = import.meta.env.VITE_SUBMIT_API_URL || '/api/submit-enquiry';
@@ -211,10 +227,13 @@ export const EnquiryForm: React.FC = () => {
         throw new Error(errorMsg);
       }
 
-      // Meta Pixel Lead tracking
-      window.fbq?.('track', 'Lead', {
-        content_name: formData.preferredCourse,
-      });
+      // Meta Pixel Lead tracking with deduplication eventID
+      window.fbq?.(
+        'track',
+        'Lead',
+        { content_name: formData.preferredCourse },
+        { eventID: eventId }
+      );
 
       setIsSuccess(true);
     } catch (err: unknown) {

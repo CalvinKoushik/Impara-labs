@@ -148,9 +148,13 @@ Runs a local web server serving `dist/` at `http://localhost:4173`.
 4. Framework Preset: **Vite** (auto-detected).
 5. Build Command: `npm run build`
 6. Output Directory: `dist`
-7. Add Environment Variable:
+7. Add Environment Variables:
    - **Name:** `GOOGLE_SHEET_WEBHOOK_URL`
-   - **Value:** `https://script.google.com/macros/s/YOUR_DEPLOYED_SCRIPT_ID/exec` *(see instructions below)*
+     **Value:** `https://script.google.com/macros/s/YOUR_DEPLOYED_SCRIPT_ID/exec` *(see instructions below)*
+   - **Name:** `META_PIXEL_ID`
+     **Value:** `2001096810847896`
+   - **Name:** `META_CAPI_TOKEN`
+     **Value:** *(Your Meta Conversions API Access Token from Events Manager)*
 8. Click **Deploy**.
 
 ---
